@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import Header from './header'
 import CarouselBanner from './carousel'
+import SignupForm from './login/form_signup'
+import Footer from './footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,6 +18,8 @@ export default function Home() {
       </Head>
       <Header></Header>
       <CarouselBanner></CarouselBanner>
+      <SignupForm></SignupForm>
+      <Footer></Footer>
     </>
   )
 }

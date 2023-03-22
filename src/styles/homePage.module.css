@@ -1,0 +1,264 @@
+#Logo {
+    position:absolute;
+    width:170px;
+    height:100px;
+    z-index:1;
+    left: 8%;
+    top: 7%;
+}
+.Header {
+    position:relative;
+    width:100%;
+    height:121.13px;
+    border:1px solid black;
+    background-color: black;
+}
+.Header:nth-child(n) {
+   font-family: var(--bs-body-font-family);
+}
+.Men {
+    position: absolute;
+    z-index: 1;
+    top:50%;
+    left:38%;
+    color:white;
+    font-size: calc(1.325rem + .9vw);
+}
+.Social {
+    position: absolute;
+    z-index: 1;
+    top:50%;
+    left:25%;
+    color:white;
+    font-size: calc(1.325rem + .9vw);
+}
+.Woman {
+    position: absolute;
+    z-index: 1;
+    top:50%;
+    left:48%;
+    color:white;
+    font-size: calc(1.325rem + .9vw);
+}
+.Hot {
+    position: absolute;
+    z-index: 1;
+    top:50%;
+    left:60%;
+    color:white;
+    font-size: calc(1.325rem + .9vw);
+}
+#loginHeader {
+    position: absolute;
+    z-index:1;
+    top:55%;
+    right:9%;
+    color:white;
+}
+#headerAvatar {
+    position: absolute;
+    z-index:1;
+    top:40%;
+    right:4%;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+/* Hết phần Header, Menu */
+.Carousel {
+    margin-top:32px;
+    position: absolute;
+    z-index:1;
+    width:1450px;
+    padding-left:100px;
+}
+.Carousel .imageCarousel2, .Carousel .imageCarousel1{
+    height:225px;
+}
+
+.titleBotHeader {
+    text-align: center;
+    margin-top:38px;
+    font-size:42px;
+    font-style: italic!important;
+    color:white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: solid;
+}
+.khungCarousel {
+    position: relative;
+    margin:0 10%;
+    width:auto;
+    border: 1px solid black;
+    height:290px;
+    margin-top:45px;
+    background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(217,217,217,0.62) 100%);
+    border-radius:20px;
+}
+/* .containerSlider {
+    position: absolute;
+    width:80%;
+    height:80%;
+    border:1px solid black;
+    margin-top:30px;
+} */
+.CarouselImage {
+    position: absolute;
+    top:10%;
+    left:11.5%;
+    width:77%;
+    height:80%;
+    display:none;
+}
+.CarouselIndicator {
+    position: absolute;
+    bottom:0%;
+    left:48%;
+    z-index:2;
+}
+#Pic2 {
+    left:50%;
+}
+#Pic3 {
+    left:52%;
+}
+.CarouselIndicator:checked +.CarouselImage {
+    display: inline-block;
+ }
+ .ImageActive {
+    display:inline-block;
+ }
+ .buttonCarousel {
+    position: absolute;
+    width:2.5%;
+    height:1%;
+    top:39%;
+    right:8%;
+ }
+ .nutphai {
+    width:25px;
+    height:45px;
+ }
+ .buttonCarouselLeft {
+    position: absolute;
+    width:2.5%;
+    height:1%;
+    top:39%;
+    left:8%;
+ }
+ .nuttrai {
+    width:25px;
+    height:45px;
+ }
+ /* Hết phần Carousel */
+ .signuptext {
+    text-align: center;
+    margin-top:2.5%;
+    font-style: italic;
+    color:white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ }
+
+ .record {
+    margin:3% 0;
+    font-size:30px;
+    margin-left:10%;
+ }
+ .blank1 {
+    margin-left:20px;
+    width:550px;
+ }
+ .blank2 {
+    margin-left:97px;
+    width:550px;
+ }
+ .blank3 {
+    margin-left:84px;
+    width:550px;
+ }
+ .buttonSignup {
+    float:left;
+    font-size: 25px;
+    width:100px;
+    color:white;
+    background-color: black;
+    border-radius:20px;
+ }
+ .otherSignUpText p{
+    padding-top:10px;
+    padding-left:115px;
+    color:black;
+ }
+ .otherSignUpText {
+    margin-left:30%;
+    width: 60%;
+    height:200px;
+ }
+ .otherSignUpText p a {
+    color:white;
+ }
+ /* Hết phần form signup */
+ .footer {
+    height:150px;
+    width:100%;
+    background-color: black;
+    border:1px solid black;
+    color:white;
+ }
+ .titleFooter {
+    padding-top:20px;
+    text-align: center;
+ }
+ .contact{
+    padding-left:10px;
+ }
+ /* Hết phần footer */
+ .loginTitle {
+    text-align: center;
+    margin-top:3%;
+    color:white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ }
+ .part {
+    font-size: 20px;
+    margin-left:20%;
+    margin-top:10px;
+ }
+ .formLoginPersonalPage {
+    margin-top:2%;
+    height:307px;
+ }
+ .inputPart1 {
+    margin-left:1%;
+    width:30%;
+    height:21px;
+ }
+ .inputPart2 {
+    margin-left:8.35%;
+    width:30%;
+    height:21px;
+ }
+ .formLoginPersonalPage button {
+    margin-left:35%;
+    margin-top:20px;
+    width:6%;
+    height:30px;
+ }
+ .footerPart {
+    width:100%;
+    height:100px;
+ }
+ .loginButton {
+   font-size: 15px;
+   float:left;
+ }
+ .textVisit {
+   margin-left:42%;
+   padding-top:26px;
+ }
+ .containerVisit {
+   height:100px;
+ }
+ .textVisit a{
+   color:white;
+ }

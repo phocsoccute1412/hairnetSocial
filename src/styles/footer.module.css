@@ -1,0 +1,17 @@
+.footer {
+   margin-top:10px;
+    height:150px;
+    width:100%;
+    background-color: black;
+    border:1px solid black;
+    color:white;
+ }
+ .titleFooter {
+    padding-top:20px;
+    text-align: center;
+    font-size: 30px;
+ }
+ .contact{
+    padding-left:10px;
+    line-height: 2;
+ }
