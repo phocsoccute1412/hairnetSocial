@@ -10,12 +10,17 @@ export default function ProductBlock(props:any) {
                 <div className={MenPage.blockInside}>
                     <h3 className={MenPage.titleBlock}>Title</h3>
                     <p><i>Hairstore1</i></p>
-                    <div className={MenPage.stargroup}>
-                        <Image src={star} alt='picture' className={MenPage.star}></Image>
-                        <Image src={star} alt='picture' className={MenPage.star}></Image>
-                        <Image src={star} alt='picture' className={MenPage.star}></Image>
-                        <Image src={star} alt='picture' className={MenPage.star}></Image>
-                        <Image src={star} alt='picture' className={MenPage.star}></Image>
+                    <div className={MenPage.rankAndPrice}>
+                        <div className={MenPage.stargroup}>
+                            <Image src={star} alt='picture' className={MenPage.star}></Image>
+                            <Image src={star} alt='picture' className={MenPage.star}></Image>
+                            <Image src={star} alt='picture' className={MenPage.star}></Image>
+                            <Image src={star} alt='picture' className={MenPage.star}></Image>
+                            <Image src={star} alt='picture' className={MenPage.star}></Image>
+                        </div>
+                    </div>
+                    <div className={MenPage.PriceBlock}>
+                        <h3 className={MenPage.Price}>Price:</h3> <p>100.000đ</p>
                     </div>
                 </div>
             </div>

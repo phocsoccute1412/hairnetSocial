@@ -4,6 +4,7 @@ import style from "../../styles/menPage.module.css"
 import ProductBlock from "../productPerformance/productBlock"
 import React, { useEffect, useRef, useState } from "react"
 import Head from "next/head"
+import DropdownButton from "../button/dropdownButton"
 
 export default function MenPage() {
     const [page,setPage]=useState(2)
@@ -20,8 +21,11 @@ export default function MenPage() {
             <Header></Header>
             <h1 className={style.titleMenPage}>Men Page</h1>
             <div className={style.frame}>
+            <div className={style.buttonDropDown}>
+                <DropdownButton ></DropdownButton>
+            </div>
                 {/* row 1 */}
-                <div className={style.rowEach}>
+                <div className={style.rowEach} id={style.rowEachFirst}>
                     <ProductBlock num={page}></ProductBlock>
                     <ProductBlock num={page}></ProductBlock>
                     <ProductBlock num={page}></ProductBlock>

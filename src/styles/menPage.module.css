@@ -1,22 +1,23 @@
 .frame {
     margin-left:10%;
     margin-top:2%;
+    margin-bottom:100px;
     border:1px solid black;
     margin-right:8%;
-    height:970px;
+    height:1000px;
     border-radius: 20px;
     background-color: black;
     width:82%;
 }
 .titleMenPage {
     text-align:center;
-    margin-top:3%;
+    margin-top:2%;
     color:white;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size:calc(1.375rem + 1.5vw);
 }
 .framePart {
-    margin-top:3%;
+    margin-top:1%;
     margin-left:4%;
     width:15%;
     float:left;
@@ -33,47 +34,51 @@
     width:100%;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, white 100%);
+    background-image:linear-gradient(90deg, #D9D9D9 0%, #52A6CA 100%);
     height:65px;
     line-height: 1.5;
+    position:relative;
 }
 .titleBlock {
     margin-left:9px;
     width:107.2px;
     height:30%;
     font-size:150%;
+    margin-bottom: 0;
 }
 .blockInside p {
     margin-top:3px;
     margin-left:9px;
     width:107.2px;
-    height:13%;
+    height:18%;
     font-size:100%;
+    margin-bottom:0;
 }
 .star {
     border-radius:50%;
-    width:10px;
-    height:10px;
+    width:7px;
+    height:7px;
     margin-right:5px;
 }
 .stargroup {
     margin-top:13px;
-    width:107.2px;
-    height:18.4px;
+    width:60%;
+    height:19px;
     margin-left:9px;
     font-size:20%;
+    float:left;
 }
 .rowEach:nth-child(n+1){
     width:100%;
-    height:200px;
+    height:220px;
     margin-top:6%;
 }
-.rowEach:first-child {
+#rowEachFirst {
     margin-top:2%;
 }
 .changeParent {
     width:100%;
-    margin-top:10%;
+    margin-top:6%;
     font-size: calc(1.3rem + .6vw);
     cursor: pointer;
 }
@@ -99,4 +104,43 @@
 }
 .footer2 {
     margin-top:50px !important;
+}
+.rankAndPrice h3{
+    color:white;
+    width:11%;
+}
+.rankAndPrice {
+    width:100%;
+}
+.blockInside .PriceBlock p {
+    color:red;
+    width:60%;
+    margin-left:0;
+    font-size: 23px;
+}
+.PriceBlock {
+    position: absolute;
+    top:10%;
+    width:100%;
+    left:50%;
+    z-index:1;
+    height:100%;
+}
+.PriceBlock h3 {
+    width:100px;
+    height: 20%;
+    margin-top:0;
+    font-size:17px;
+    margin-bottom:4%;
+    opacity:0.5;
+}
+.noidung_dropdown {
+    color:white;
+    border:1px solid white;
+    display:none;
+}
+.dropdown {
+    margin-top:2%;
+    margin-left:90%;
+    width:10%;
 }
