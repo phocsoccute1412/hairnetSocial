@@ -8,10 +8,10 @@ import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
 
 export default function MenPage() {
-    const urlMan = '/images/publicPageImages/tocnamdep'
-    const [page,setPage]=useState(2)
-    if(page > 13) setPage(2)
-    if(page < 2) setPage(13)
+    const urlWoman = "/images/publicPageImages/tocnu"
+    const [page,setPage]=useState(5)
+    if(page > 13) setPage(5)
+    if(page < 5) setPage(13)
     return (
         <>
             <Head>
@@ -21,7 +21,7 @@ export default function MenPage() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header></Header>
-            <h1 className={style.titleMenPage}>Men Page</h1>
+            <h1 className={style.titleMenPage}>Woman Page</h1>
             <div className={style.frame}>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
@@ -41,34 +41,34 @@ export default function MenPage() {
             </div>
                 {/* row 1 */}
                 <div className={style.rowEach} id={style.rowEachFirst}>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
                 </div>
                 {/* hết row 1 */}
                 {/* row 2 */}
                 <div className={style.rowEach}>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
                 </div>
                 {/* hết row 2 */}
                 {/* row 3 */}
                 <div className={style.rowEach}>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
                 </div>
                 {/* hết row 3 */}
                 <div className={style.changeParent}>
-                <h3 onClick={()=> setPage(2)}>1</h3>
-                <h3 onClick={()=> setPage(3)}>2</h3>
+                <h3 onClick={()=> setPage(5)}>1</h3>
+                <h3 onClick={()=> setPage(6)}>2</h3>
                 <h3>...</h3>
                 <h3 onClick={()=>{
                     setPage(page+1)

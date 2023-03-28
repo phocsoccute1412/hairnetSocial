@@ -2,7 +2,7 @@ import Image from "next/image"
 import star from "../../../public/images/publicPageImages/star.png"
 import MenPage from "../../styles/menPage.module.css"
 export default function ProductBlock(props:any) {
-    const imageUrl = `/images/publicPageImages/tocnamdep${props.num}.jpg`
+    const imageUrl = `${props.url}${props.num}.jpg`
     return (
         <>
             <div className={MenPage.framePart}>

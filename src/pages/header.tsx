@@ -14,7 +14,9 @@ export default function Header() {
             <Link href='/menPage'>
               <h2 className={homecss.Men}>Men</h2>
             </Link>
-            <h2 className={homecss.Woman}>Woman</h2>
+            <Link href='/womanPage'>
+              <h2 className={homecss.Woman}>Woman</h2>
+            </Link>
             <h2 className={homecss.Hot}>Hot</h2>
         </div>
         <div className={homecss.headerright}>
