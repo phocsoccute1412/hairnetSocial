@@ -5,6 +5,7 @@ import ProductBlock from "../productPerformance/productBlock"
 import React, { useEffect, useRef, useState } from "react"
 import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
+import SuggestButton from "../button/suggestButton"
 
 export default function MenPage() {
     const [page,setPage]=useState(2)
@@ -22,7 +23,20 @@ export default function MenPage() {
             <h1 className={style.titleMenPage}>Men Page</h1>
             <div className={style.frame}>
             <div className={style.buttonDropDown}>
-                <DropdownButton ></DropdownButton>
+                <DropdownButton 
+                dropdown={style.dropdown}
+                nut_dropdown={style.nut_dropdown}
+                noidung_dropdown={style.noidung_dropdown}
+                active={style.active}
+                activeSuggest={style.activeSuggest}>
+                </DropdownButton>
+                <SuggestButton
+                dropdownSuggestButton={style.dropdownSuggestButton}
+                nut_dropdownSuggest={style.nut_dropdownSuggest}
+                noidung_dropdownSuggest={style.noidung_dropdownSuggest}
+                activeSuggest={style.activeSuggest}
+                active={style.active}>
+                </SuggestButton>
             </div>
                 {/* row 1 */}
                 <div className={style.rowEach} id={style.rowEachFirst}>

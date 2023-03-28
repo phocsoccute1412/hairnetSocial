@@ -1,22 +1,32 @@
+import { useState } from "react"
+import Image from "next/image"
 export default function DropdownButton(props:any){
+    const [exchange, setExchange]=useState(false)
+    var insOrDes = ''
+    if(exchange) insOrDes = 'Increase'
+    else insOrDes = 'Decrease'
     return (
         <>
             <div className={props.dropdown}>
-                <button className={props.nut_dropdown} onClick={()=>{
-                    
-                }}>Dropdown</button>
-                <div className={`target ${props.noidung_dropdown}`}>
-                   <p>Đường dẫn 1</p>
-                   <p>Đường dẫn 2</p>
-                   <p>Đường dẫn 3</p>
+                <Image src="/images/publicPageImages/exchange.png" alt="picture"
+                width={500} height={500}
+                style={{width:"30px",height:"30px",borderRadius:"5px"}}
+                className={props.nut_dropdown} onClick={()=>{
+                    const eles:any = document.querySelector('#target')
+                    const elesSuggest:any = document.querySelector('#Suggest')
+                    if(elesSuggest != null){
+                        if(elesSuggest.classList.contains(props.activeSuggest)) elesSuggest.classList.remove(props.activeSuggest)
+                    }
+                    if(eles!= null) eles.classList.toggle(props.active)
+                }}></Image>
+                <div id= 'target' className={props.noidung_dropdown}>
+                   <p onClick={()=>{
+                        setExchange(!exchange)
+                   }}>{`Rank ${insOrDes}`}</p>
+                   <p>Layer</p>
+                   <p>Side-Part</p>
                 </div>
             </div>
         </>
     )
-}
-DropdownButton.defaultProps = {
-    dropdown:'dropdown',
-    nut_dropdown:'nut_dropdown',
-    noidung_dropdown:'noidung_dropdown',
-    handleDropDown:()=>{}
 }
