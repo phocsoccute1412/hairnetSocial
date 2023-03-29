@@ -20,7 +20,7 @@ export default function ProductBlock(props:any) {
                         </div>
                     </div>
                     <div className={MenPage.PriceBlock}>
-                        <h3 className={MenPage.Price}>Price:</h3> <p>100.000đ</p>
+                        <h3 className={MenPage.Price}>Price:</h3> <p><b>100.000đ</b></p>
                     </div>
                 </div>
             </div>

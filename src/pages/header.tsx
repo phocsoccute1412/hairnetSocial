@@ -3,6 +3,7 @@ import Link from 'next/link'
 import homecss from '../styles/homePage.module.css'
 const Picture=require('../../public/images/publicPageImages/Logo2.png')
 const Ava=require('../../public/images/publicPageImages/Logo.png')
+
 export default function Header() {
     return <>
     <div className={homecss.Header}>
@@ -17,7 +18,19 @@ export default function Header() {
             <Link href='/womanPage'>
               <h2 className={homecss.Woman}>Woman</h2>
             </Link>
-            <h2 className={homecss.Hot}>Hot</h2>
+            <div className={homecss.HotPart} onMouseOver={()=>{
+                const dropDownHeader = document.querySelector(`.${homecss.dropdownHeader}`)
+                if(dropDownHeader!==null) dropDownHeader.classList.add(homecss.dropdownHeaderActive)
+              }}>
+              <h2 className={homecss.Hot}>Hot</h2>
+            </div>
+            <div className={homecss.dropdownHeader} onMouseLeave={()=>{
+                const dropDownHeader = document.querySelector(`.${homecss.dropdownHeader}`)
+                if(dropDownHeader!==null) dropDownHeader.classList.remove(homecss.dropdownHeaderActive)
+              }}>
+              <h3><Link href='/combo/mencombo'>Combo Handsome</Link></h3>
+              <h3><Link href='/combo/womancombo'>Combo Prettier</Link></h3>
+            </div>
         </div>
         <div className={homecss.headerright}>
           <Link href='/login'>

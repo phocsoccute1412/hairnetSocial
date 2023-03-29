@@ -2,7 +2,7 @@ import Header from "../header"
 import Footer from "../footer"
 import style from "../../styles/menPage.module.css"
 import ProductBlock from "../productPerformance/productBlock"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useState } from "react"
 import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
@@ -12,6 +12,12 @@ export default function MenPage() {
     const [page,setPage]=useState(2)
     if(page > 13) setPage(2)
     if(page < 2) setPage(13)
+    const keys = [1,2,3,4,5]
+    const blocks = keys.map(key =>{
+        return (
+            <ProductBlock num={page} url={urlMan} key={key}></ProductBlock>
+        )
+    })
     return (
         <>
             <Head>
@@ -36,34 +42,23 @@ export default function MenPage() {
                 nut_dropdownSuggest={style.nut_dropdownSuggest}
                 noidung_dropdownSuggest={style.noidung_dropdownSuggest}
                 activeSuggest={style.activeSuggest}
-                active={style.active}>
+                active={style.active}
+                checkArray = {true}>
                 </SuggestButton>
             </div>
                 {/* row 1 */}
                 <div className={style.rowEach} id={style.rowEachFirst}>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
+                    <>{blocks}</>
                 </div>
                 {/* hết row 1 */}
                 {/* row 2 */}
                 <div className={style.rowEach}>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
+                    <>{blocks}</>
                 </div>
                 {/* hết row 2 */}
                 {/* row 3 */}
                 <div className={style.rowEach}>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
-                    <ProductBlock num={page} url={urlMan}></ProductBlock>
+                    <>{blocks}</>
                 </div>
                 {/* hết row 3 */}
                 <div className={style.changeParent}>

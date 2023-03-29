@@ -1,5 +1,12 @@
 import Image from "next/image"
+
 export default function SuggestButton(props:any){
+    const arrayMale = ['Buzz Cut', 'Layer', 'Side-Park' ]
+    const arrayFemale = ['Layer','Uốn','Nhuộm']
+    var suggests
+    if(props.checkArray)
+        suggests = arrayMale.map(suggest => <p>{suggest}</p>)
+    else suggests = arrayFemale.map(suggest => <p>{suggest}</p>)
     return (
         <>
             <div className={props.dropdownSuggestButton}>
@@ -15,9 +22,7 @@ export default function SuggestButton(props:any){
                     if(eles!= null) eles.classList.toggle(props.activeSuggest)
                 }}></Image>
                 <div id= 'Suggest' className={props.noidung_dropdownSuggest}>
-                   <p>Buzz Cut</p>
-                   <p>Layer</p>
-                   <p>Side-Part</p>
+                   <>{suggests}</>
                 </div>
             </div>
         </>

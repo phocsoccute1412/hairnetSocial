@@ -36,7 +36,8 @@ export default function MenPage() {
                 nut_dropdownSuggest={style.nut_dropdownSuggest}
                 noidung_dropdownSuggest={style.noidung_dropdownSuggest}
                 activeSuggest={style.activeSuggest}
-                active={style.active}>
+                active={style.active}
+                checkArray={false}>
                 </SuggestButton>
             </div>
                 {/* row 1 */}
