@@ -6,12 +6,22 @@ import React, { useEffect, useRef, useState } from "react"
 import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
+import SearchInput from "../productPerformance/search"
 
 export default function MenPage() {
     const urlWoman = "/images/publicPageImages/tocnu"
     const [page,setPage]=useState(5)
     if(page > 13) setPage(5)
     if(page < 5) setPage(13)
+    const keys = [1,2,3,4,1000]
+    const blocks = keys.map(key =>{
+        return (
+            <ProductBlock num={page} url={urlWoman} slug={key}></ProductBlock>
+        )
+    })
+    const [arr,setArr]=useState([])
+    const callBackFunction = (child:never) =>setArr([child])
+    console.log(arr)
     return (
         <>
             <Head>
@@ -23,6 +33,8 @@ export default function MenPage() {
             <Header></Header>
             <h1 className={style.titleMenPage}>Woman Page</h1>
             <div className={style.frame}>
+            <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
+            parentCallBack={callBackFunction}></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}
@@ -42,29 +54,17 @@ export default function MenPage() {
             </div>
                 {/* row 1 */}
                 <div className={style.rowEach} id={style.rowEachFirst}>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <>{blocks}</>
                 </div>
                 {/* hết row 1 */}
                 {/* row 2 */}
                 <div className={style.rowEach}>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <>{blocks}</>
                 </div>
                 {/* hết row 2 */}
                 {/* row 3 */}
                 <div className={style.rowEach}>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
-                    <ProductBlock num={page} url={urlWoman}></ProductBlock>
+                    <>{blocks}</>
                 </div>
                 {/* hết row 3 */}
                 <div className={style.changeParent}>

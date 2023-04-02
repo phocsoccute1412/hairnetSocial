@@ -2,22 +2,33 @@ import Header from "../header"
 import Footer from "../footer"
 import style from "../../styles/menPage.module.css"
 import ProductBlock from "../productPerformance/productBlock"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
+import SearchInput from "../productPerformance/search"
 
 export default function MenPage() {
     const urlMan = '/images/publicPageImages/tocnamdep'
     const [page,setPage]=useState(2)
     if(page > 13) setPage(2)
     if(page < 2) setPage(13)
-    const keys = [1,2,3,4,5]
+    const keys = [1,2,3,4,1000]
     const blocks = keys.map(key =>{
         return (
-            <ProductBlock num={page} url={urlMan} key={key}></ProductBlock>
+            <ProductBlock num={page} url={urlMan} slug={key} hairName="hairStore1"></ProductBlock>
         )
     })
+    const [arr,setArr]=useState([])
+    const callBackFunction = (child:never) =>setArr([child])
+    const prop = [...blocks]
+    useEffect(()=>{
+        for (let i = 0; i < prop.length; i++){
+            if(prop[i].props.hairName==arr[arr.length-1]) console.log(true)
+            else console.log(false)
+        }
+        console.log(arr[0])
+    },[arr])
     return (
         <>
             <Head>
@@ -29,6 +40,8 @@ export default function MenPage() {
             <Header></Header>
             <h1 className={style.titleMenPage}>Men Page</h1>
             <div className={style.frame}>
+            <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
+            parentCallBack={callBackFunction}></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}

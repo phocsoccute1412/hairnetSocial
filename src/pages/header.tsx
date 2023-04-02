@@ -22,7 +22,10 @@ export default function Header() {
                 const dropDownHeader = document.querySelector(`.${homecss.dropdownHeader}`)
                 if(dropDownHeader!==null) dropDownHeader.classList.add(homecss.dropdownHeaderActive)
               }}>
-              <h2 className={homecss.Hot}>Hot</h2>
+              <h2 className={homecss.Hot} onClick={()=>{
+                const dropDownHeader = document.querySelector(`.${homecss.dropdownHeader}`)
+                if(dropDownHeader!==null) dropDownHeader.classList.remove(homecss.dropdownHeaderActive)
+              }}>Hot</h2>
             </div>
             <div className={homecss.dropdownHeader} onMouseLeave={()=>{
                 const dropDownHeader = document.querySelector(`.${homecss.dropdownHeader}`)
@@ -36,7 +39,14 @@ export default function Header() {
           <Link href='/login'>
             <h4 id={homecss.loginHeader}>Login</h4>
           </Link>
-          <Image src={Ava} alt='picture' id={homecss.headerAvatar}></Image>
+          <Image src={Ava} alt='picture' id={homecss.headerAvatar} onClick={()=>{
+            const dropDownSetting = document.querySelector(`.${homecss.personalSetting}`)
+            dropDownSetting?.classList.toggle(homecss.personalSettingActive)
+          }}></Image>
+          <div className={homecss.personalSetting}>
+            <p><Link href="">Profile</Link></p>
+            <p><Link href="">Setting</Link></p>
+          </div>
         </div>
       </div>
     </>

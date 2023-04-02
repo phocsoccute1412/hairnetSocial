@@ -1,22 +1,27 @@
 import Image from "next/image"
+import Link from "next/link"
 import star from "../../../public/images/publicPageImages/star.png"
 import MenPage from "../../styles/menPage.module.css"
+
 export default function ProductBlock(props:any) {
     const imageUrl = `${props.url}${props.num}.jpg`
+    const arrayStar = [1,2,3,4,5]
+    const ranks = arrayStar.map((rank)=>{
+        return (
+            <Image src={star} alt='picture' className={MenPage.star} key={rank}></Image>
+        )
+    })
+    const ele = document.querySelector('#nameStore')
     return (
-        <>
+        <><Link href={`/productPagePersonal/${props.slug}`} className={MenPage.linkProduct}>
             <div className={MenPage.framePart}>
                 <Image src={imageUrl} alt='picture' className={MenPage.imagePart} width={500} height={500} priority></Image>
                 <div className={MenPage.blockInside}>
                     <h3 className={MenPage.titleBlock}>Title</h3>
-                    <p><i>Hairstore1</i></p>
+                    <p id="nameStore">{props.hairName}</p>
                     <div className={MenPage.rankAndPrice}>
                         <div className={MenPage.stargroup}>
-                            <Image src={star} alt='picture' className={MenPage.star}></Image>
-                            <Image src={star} alt='picture' className={MenPage.star}></Image>
-                            <Image src={star} alt='picture' className={MenPage.star}></Image>
-                            <Image src={star} alt='picture' className={MenPage.star}></Image>
-                            <Image src={star} alt='picture' className={MenPage.star}></Image>
+                            <>{ranks}</>
                         </div>
                     </div>
                     <div className={MenPage.PriceBlock}>
@@ -24,6 +29,7 @@ export default function ProductBlock(props:any) {
                     </div>
                 </div>
             </div>
+            </Link>
         </>
     )
 }

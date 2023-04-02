@@ -8,6 +8,7 @@
     border-radius: 20px;
     background-color: black;
     width:82%;
+    position:relative;
 }
 .titleMenPage {
     text-align:center;
@@ -120,13 +121,13 @@
     color:red;
     width:60%;
     margin-left:0;
-    font-size: 23px;
+    font-size: 22px;
 }
 .PriceBlock {
     position: absolute;
     top:10%;
     width:100%;
-    left:50%;
+    left:48%;
     z-index:1;
     height:100%;
 }
@@ -206,4 +207,34 @@
 }
 .activeSuggest p:hover {
     color:yellow;
+}
+.linkProduct {
+    color:black;
+}
+.linkProduct:hover {
+    color:brown;
+}
+#searchinput {
+    margin-left:3%;
+    border-radius: 20px;
+    width:90%;
+    height:30%;
+    margin-top:2%;
+}
+#searchinput::placeholder {
+    padding-left:10px;
+    font-style: italic;
+    font-size:13px;
+}
+.labelsearch {
+    margin-left:4%;
+    margin-top:2%;
+}
+.wrapsearch {
+    display:flex;
+    position: absolute;
+    top:2%;
+    left:2%;
+    z-index:2;
+    width:30%;
 }
