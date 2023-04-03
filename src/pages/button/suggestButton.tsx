@@ -5,8 +5,8 @@ export default function SuggestButton(props:any){
     const arrayFemale = ['Layer','Uốn','Nhuộm']
     var suggests
     if(props.checkArray)
-        suggests = arrayMale.map(suggest => <p>{suggest}</p>)
-    else suggests = arrayFemale.map(suggest => <p>{suggest}</p>)
+        suggests = arrayMale.map(suggest => <p key={suggest}>{suggest}</p>)
+    else suggests = arrayFemale.map(suggest => <p key={suggest}>{suggest}</p>)
     return (
         <>
             <div className={props.dropdownSuggestButton}>

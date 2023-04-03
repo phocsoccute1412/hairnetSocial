@@ -16,7 +16,7 @@ export default function MenPage() {
     const keys = [1,2,3,4,1000]
     const blocks = keys.map(key =>{
         return (
-            <ProductBlock num={page} url={urlWoman} slug={key}></ProductBlock>
+            <ProductBlock key={key} num={page} url={urlWoman} slug={key}></ProductBlock>
         )
     })
     const [arr,setArr]=useState([])

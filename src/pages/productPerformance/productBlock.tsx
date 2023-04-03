@@ -11,7 +11,6 @@ export default function ProductBlock(props:any) {
             <Image src={star} alt='picture' className={MenPage.star} key={rank}></Image>
         )
     })
-    const ele = document.querySelector('#nameStore')
     return (
         <><Link href={`/productPagePersonal/${props.slug}`} className={MenPage.linkProduct}>
             <div className={MenPage.framePart}>
