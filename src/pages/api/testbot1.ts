@@ -18,7 +18,7 @@ export default async function handler(
       password: req.body.Phone
     })
     res.status(200)
-    res.redirect(307,'/')
+    res.redirect(303,'/')
   }
   catch(err) {console.log(err)}
   //   const user = await users.find(query).toArray(function (err:any, result:any) {
