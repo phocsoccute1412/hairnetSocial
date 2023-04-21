@@ -36,10 +36,10 @@ export default function PageStore(){
                     <div className={storepagecss.aboutcompany}>
                         <h1>About us</h1>
                         <p>
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                        {"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."}
                         </p>
-                        <button className={storepagecss.contactbutton}>Contact</button>
-                        <button className={storepagecss.likebutton}>Like</button>
+                        <button className={storepagecss.contactbutton}>{'Contact'}</button>
+                        <button className={storepagecss.likebutton}>{'Like'}</button>
                     </div>
                     <div className={storepagecss.carouselcompany}>
                         <input type="radio" className={storepagecss.carousel_indicator} id={storepagecss.carousel_input_1} name='carousel_img' 
@@ -62,22 +62,22 @@ export default function PageStore(){
                 </div>
             </div>
             <div className={storepagecss.titleProduct}>
-                <h2>Product</h2>
+                <h2>{'Product'}</h2>
             </div>
             <div className={storepagecss.bodyProduct}>
                 <div className={storepagecss.rowTitle}>
                     <button className={storepagecss.styleHairButton} id={storepagecss.styleHair}>
-                        <h4>Kiểu tóc</h4>
+                        <h4>{'Kiểu tóc'}</h4>
                         <Image src="/images/publicPageImages/dropdown.png" alt='picture'
                         width={200} height={200}></Image>
                     </button>
                     <button className={storepagecss.styleHairButton} id={storepagecss.colorHair}>
-                        <h4>Màu tóc</h4>
+                        <h4>{'Màu tóc'}</h4>
                         <Image src="/images/publicPageImages/dropdown.png" alt='picture'
                         width={200} height={200}></Image>
                     </button>
                     <button className={storepagecss.styleHairButton} id={storepagecss.lengthHair}>
-                        <h4>Độ dài</h4>
+                        <h4>{'Độ dài'}</h4>
                         <Image src="/images/publicPageImages/dropdown.png" alt='picture'
                         width={200} height={200}></Image>
                     </button>
