@@ -12,7 +12,7 @@ export default function ProductBlock(props:any) {
         )
     })
     return (
-        <><Link href={`/productPagePersonal/${props.slug}`} className={MenPage.linkProduct}>
+        <><Link href={`/storePage/${props.slug}`} className={MenPage.linkProduct}>
             <div className={MenPage.framePart}>
                 <Image src={imageUrl} alt='picture' className={MenPage.imagePart} width={500} height={500} priority></Image>
                 <div className={MenPage.blockInside}>

@@ -166,16 +166,20 @@
     margin-left:10%;
  }
  .blank1 {
-    margin-left:20px;
+    margin-left:100px;
     width:550px;
  }
  .blank2 {
-    margin-left:97px;
+    margin-left:177px;
     width:550px;
  }
  .blank3 {
-    margin-left:84px;
+    margin-left:125px;
     width:550px;
+ }
+ .blank4 {
+   margin-left: 49px;
+   width:550px;
  }
  .buttonSignup {
     float:left;

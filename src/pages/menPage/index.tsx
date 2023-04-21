@@ -9,6 +9,7 @@ import SuggestButton from "../button/suggestButton"
 import SearchInput from "../productPerformance/search"
 
 export default function MenPage() {
+    const hrefsrc = '/storePage/1'
     const urlMan = '/images/publicPageImages/tocnamdep'
     const [page,setPage]=useState(2)
     if(page > 13) setPage(2)

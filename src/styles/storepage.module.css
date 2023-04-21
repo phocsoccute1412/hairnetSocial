@@ -1,0 +1,218 @@
+.container_storeinfo {
+    margin-top:20px;
+    width:100%;
+    position: relative;
+}
+.imgandinfo {
+    width:32%;
+    height:80%;
+    margin-left:3%;
+}
+.imgandinfo img {
+    height:90%;
+    border:1.5px solid black;
+}
+.detail ul li {
+    list-style: none;
+    font-size: 18px;
+}
+.infostore {
+    width:335px;
+    border:1px solid black;
+}
+.infostore h4 {
+    font-size: 25px;
+    text-align: center;
+    color:white;
+    background-color:black;
+    font-style: italic;
+    stroke: black;
+    text-shadow: 2px 2px 2px black;
+    height:30%;
+}
+.detail {
+    background-image: linear-gradient(180deg, #2C6B86 0%, #D9D9D9 100%);
+    display:flex;
+}
+.detail ul:nth-child(2) {
+    margin-left: 13px;
+}
+.detail ul:nth-child(2) li {
+    font-style: italic;
+    opacity: 0.7;
+}
+.aboutcompany {
+    position: absolute;
+    z-index: 1;
+    top:0;
+    right:7%;
+    width:60%;
+    height:70%;
+    border: 1px solid black;
+    background-image: linear-gradient(90deg, black 30%, #52A6CA 100%);
+}
+.aboutcompany h1 {
+    text-align: center;
+    background: linear-gradient(to top, white 0%, black 100%);
+    background-clip: text;
+    color: transparent;
+    margin-top:2%;
+}
+.aboutcompany p {
+    color:white;
+    margin: 2% 2%;
+    font-size: 18px;
+    text-align: justify;
+}
+.aboutcompany .contactbutton {
+    margin-top:6.5%;
+    margin-left:60%;
+    width:15%;
+    height:8.5%;
+    font-size: 20px;
+    background-image: linear-gradient(0deg, white 0%, black 100%);
+    color:white;
+    cursor: pointer;
+}
+.aboutcompany .likebutton {
+    margin-left: 2%;
+    width:15%;
+    height:8.5%;
+    font-size: 20px;
+    background-image: linear-gradient(0deg, black 0%, black 100%);
+    color:white;
+    cursor: pointer;
+}
+.carouselcompany {
+    position:absolute;
+    bottom:0;
+    right:0;
+    z-index:1;
+    border:1px solid black;
+    width:60%;
+    right:7%;
+    height:25%;
+    background-color: black;
+}
+.carousel_indicator {
+    position: absolute;
+    z-index:5;
+    bottom:0;
+}
+.carousel_indicator:first-child{
+    left:48%;
+}
+#carousel_input_2 {
+    left:50%;
+}
+#carousel_input_3 {
+    left:52%;
+}
+#carousel_img_1 {
+    width:90%;
+    height:100%;
+    position: absolute;
+    z-index:2;
+    margin-left:4.9%;
+}
+#carousel_img_2 {
+    width:90%;
+    height:100%;
+    position: absolute;
+    z-index:3;
+    margin-left:4.9%;
+}
+#carousel_img_3 {
+    width:90%;
+    height:100%;
+    position: absolute;
+    z-index:4;
+    margin-left:4.9%;
+}
+.carousel_img{
+    display:none;
+}
+.carousel_indicator:checked + .carousel_img{
+    display:inline-block;
+}
+.buttonCarouselLeft, .buttonCarouselRight {
+    width:25px;
+    height:45px;
+    position: absolute;
+    z-index:6;
+    cursor: pointer;
+}
+.imgCarouselButtonLeft, .imgCarouselButtonRight {
+    width:100%;
+    height: 100% !important;
+}
+.buttonCarouselRight {
+    top:33%;
+    right:1.1%;
+}
+.buttonCarouselLeft{
+    top:33%;
+    left:1.1%
+}
+.titleProduct {
+    text-align: center;
+    margin-top:50px;
+    width:100%;
+}
+.titleProduct h2 {
+    width:40%;
+    border:1px solid black;
+    margin-left:30%;
+    background-image: radial-gradient(white, black);
+    border-radius:20px;
+}
+.bodyProduct {
+    width:80%;
+    height:25px;
+    border:1px solid black;
+    margin-left:10%;
+    margin-top:2.5%;
+    height:1000px;
+    background-image: linear-gradient(90deg, black 0%, #d9d9d9 100%);
+}
+.rowTitle {
+    width:100%;
+    display: flex;
+    margin-top:2%;
+}
+.styleHairButton {
+    width:120px;
+    height:30px;
+    display: flex;
+    border:1px solid black;
+    background-image: linear-gradient(-90deg, white 0%, #d9d9d9 60%, rgba(0, 0, 0, 0.321) 100%);
+}
+.styleHairButton h4 {
+    font-size: 17px;
+    margin-top:4%;
+    margin-left:3%;
+}
+.styleHairButton img {
+    width:30%;
+    height:70%;
+    margin-left:6.5%;
+    margin-top:4%;
+}
+#styleHair {
+    margin-left:5%;
+}
+#colorHair {
+    margin-left:3%;
+}
+#colorHair h4{
+    margin-left:5%;
+}
+#lengthHair {
+    margin-left: 3%;
+}
+#lengthHair h4 {
+    margin-left:8%;
+}
+#lengthHair img {
+    margin-left:12%;
+}
