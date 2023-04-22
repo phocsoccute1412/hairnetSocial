@@ -216,3 +216,23 @@
 #lengthHair img {
     margin-left:12%;
 }
+.wrapsearch {
+    margin-left:20%;
+    width:40%;
+    margin-top:0.3%;
+    display:flex;
+}
+#searchinput {
+    width:80%;
+    margin-left:2%;
+    border-radius: 20px;
+}
+.labelsearch {
+    width:25px;
+    height:25px;
+    display: block;
+}
+.labelsearch img {
+    width:100%;
+    height:100%;
+}

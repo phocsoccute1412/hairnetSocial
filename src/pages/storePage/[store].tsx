@@ -1,8 +1,10 @@
 import Header from "@/pages/header"
 import Footer from "@/pages/footer"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import storepagecss from '../../styles/storepage.module.css'
+import Search from '../productPerformance/search'
 export default function PageStore(){
     const param = useSearchParams()
     const store = param.toString().split('=')
@@ -81,6 +83,10 @@ export default function PageStore(){
                         <Image src="/images/publicPageImages/dropdown.png" alt='picture'
                         width={200} height={200}></Image>
                     </button>
+                    <Search wrapsearch={storepagecss.wrapsearch}
+                    searchinput={storepagecss.searchinput}
+                    labelsearch={storepagecss.labelsearch}
+                    parentCallBack={Flag}></Search>
                 </div>
             </div>
             <Footer></Footer>
@@ -112,3 +118,4 @@ function handleOnClickReverse(){
     else flag -=1;
     inputElesReverse[flag].checked=true;
 }
+function Flag(flag:any){}

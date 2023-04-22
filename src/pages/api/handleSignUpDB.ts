@@ -8,7 +8,7 @@ export default async function(req:NextApiRequest, res:NextApiResponse){
         const database = client.db('hairnet')
         const users = database.collection('Users')
         const query= {username:req.body.userName, password:req.body.password, phone:req.body.Phone}
-        const test = await users.findOne(query)
+        const test = await users.find(query).limit(2).toArray();
         if(test.length === 0){
             res.status(200).json({message:'account created'})
                 const newUser = await users.insertOne({
@@ -19,6 +19,7 @@ export default async function(req:NextApiRequest, res:NextApiResponse){
             })
         }
         else res.status(200).json(test)
+        res.status(200).json({type:typeof test})
     } catch (error) {
         console.log(error)
     }
