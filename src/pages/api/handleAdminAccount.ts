@@ -23,7 +23,7 @@ export default async function handleAdminAccount(req: NextApiRequest, res: NextA
     }
     else {
         if(result.length!==0) {
-            setCookie('account_admin_exist',{username:usernameadmin, password:passwordadmin}, { req, res, maxAge: 24*60*60*1000 })
+            setCookie('account_admin_exist',{username:usernameadmin, password:passwordadmin}, { req, res, maxAge: 60*60*1000 })
             res.status(303)
             res.redirect('/administrator')
         }
