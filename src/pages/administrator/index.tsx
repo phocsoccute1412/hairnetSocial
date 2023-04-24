@@ -8,6 +8,7 @@ export default function HomeAdmin(){
         if(hasCookie('account_admin_exist')){
             setState(<AdminPage/>)
         }
+        else setState(<LoginAdmin/>)
     },[])
     return (state)
 }
