@@ -10,8 +10,11 @@ app.prepare().then(() => {
   const server = express()
 
 //Tạo ra các router. Dòng này có ý nghĩa khi gửi request đến path /a . Sẽ render file /a.js trong thư mục pages/a.js của Nextjs
-  server.get('/a', (req, res) => {
-    return app.render(req, res, '/a', req.query)
+//   server.get('/administrator/setshop', (req, res) => {
+//     return app.render(req, res, '/administrator', req.query)
+//   })
+  server.get('/administrator/setshop', (req, res) => {
+    return res.status(303).redirect('/administrator')
   })
 
 // Nếu các bạn muốn các routing tự động liến kết đến route files giống với cấu trúc của Nextjs thì chỉ cần thêm 3 dòng bên dưới
