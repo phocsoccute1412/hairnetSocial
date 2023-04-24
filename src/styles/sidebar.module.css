@@ -1,0 +1,22 @@
+.container_sidebar_menu {
+    background-color: black;
+    width:10%;
+    height:1024px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    position: fixed;
+}
+.container_sidebar_menu a {
+    text-decoration: none;
+}
+.setRank {
+    color:white;
+    padding-top:10px;
+    height:30px;
+    cursor: pointer;
+}
+.setRank:hover {
+    background-color: white;
+    border-radius: 1px solid black;
+    color:black;
+}

@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/carousel.tsx", "src/pages/footer.tsx", "src/pages/menPage/index.js", "src/pages/changeComponent/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/carousel.tsx", "src/pages/footer.tsx", "src/pages/menPage/index.js", "src/pages/changeComponent/index.js", "src/pages/administrator/index.js"],
   "exclude": ["node_modules"]
 }

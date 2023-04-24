@@ -7,6 +7,7 @@ import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
 import SearchInput from "../productPerformance/search"
+import { Inter } from 'next/font/google'
 
 export default function MenPage() {
     const hrefsrc = '/storePage/1'

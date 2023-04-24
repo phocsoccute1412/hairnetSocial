@@ -16,7 +16,7 @@ export default function MenPage() {
     const keys = [1,2,3,4,1000]
     const blocks = keys.map(key =>{
         return (
-            <ProductBlock key={key} num={page} url={urlWoman} slug={key}></ProductBlock>
+            <ProductBlock key={key} num={page} url={urlWoman} slug={key} hairName='hairstore1'></ProductBlock>
         )
     })
     const [arr,setArr]=useState([])
@@ -68,15 +68,15 @@ export default function MenPage() {
                 </div>
                 {/* hết row 3 */}
                 <div className={style.changeParent}>
-                <h3 onClick={()=> setPage(5)}>1</h3>
-                <h3 onClick={()=> setPage(6)}>2</h3>
-                <h3>...</h3>
-                <h3 onClick={()=>{
-                    setPage(page+1)
-                }}><button>Next</button></h3>
-                <h3 onClick={()=>{
-                    setPage(page-1)
-                }}><button>Previous</button></h3>
+                    <h3 onClick={()=> setPage(5)}>1</h3>
+                    <h3 onClick={()=> setPage(6)}>2</h3>
+                    <h3>...</h3>
+                    <h3 onClick={()=>{
+                        setPage(page+1)
+                    }}><button>Next</button></h3>
+                    <h3 onClick={()=>{
+                        setPage(page-1)
+                    }}><button>Previous</button></h3>
                 </div>
             </div>
             <Footer></Footer>
