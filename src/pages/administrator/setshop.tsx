@@ -17,7 +17,7 @@ export default function AdminPage(){
                     <h1>Admin Page</h1>
                 </div>
                 <div className={admincss.form_set_shop}>
-                    <form action="">
+                    <form action="/api/insertDBSetShop" method='POST'>
                         <label htmlFor="">Shop Name</label>
                         <input type="text" name='shopname'/>
                         <br />
