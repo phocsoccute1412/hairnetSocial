@@ -4,10 +4,16 @@ import Header from './header'
 import CarouselBanner from './carousel'
 import SignupForm from './login/form_signup'
 import Footer from './footer'
+import { hasCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
+import {useEffect} from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
+  const router = useRouter()
+  useEffect(()=>{
+    if(hasCookie('account_exist')) router.push('/menPage')
+  },[])
   return (
     <>
       <Head>

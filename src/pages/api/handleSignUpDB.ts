@@ -1,9 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { hasCookie, setCookie } from "cookies-next";
 const {MongoClient} = require("mongodb")
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 export default async function(req:NextApiRequest, res:NextApiResponse){
+    if(!hasCookie('account_exist')){
+        setCookie('account_exist',{username:req.body.username, password:req.body.password}, { req, res, maxAge: 24*60*60*1000 })
+    }
     try {
         const database = client.db('hairnet')
         const users = database.collection('Users')
@@ -19,7 +23,6 @@ export default async function(req:NextApiRequest, res:NextApiResponse){
             })
         }
         else res.status(200).json(test)
-        res.status(200).json({type:typeof test})
     } catch (error) {
         console.log(error)
     }
