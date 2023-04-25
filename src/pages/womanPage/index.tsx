@@ -7,8 +7,14 @@ import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
 import SearchInput from "../productPerformance/search"
+import { useRouter } from "next/router"
+import { hasCookie } from "cookies-next"
 
 export default function MenPage() {
+    const router = useRouter()
+    useEffect(()=>{
+        if(!hasCookie('account_exist')) router.push('/')
+    },[])
     const urlWoman = "/images/publicPageImages/tocnu"
     const [page,setPage]=useState(5)
     if(page > 13) setPage(5)

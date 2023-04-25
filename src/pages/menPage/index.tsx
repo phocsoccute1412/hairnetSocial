@@ -7,9 +7,14 @@ import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
 import SearchInput from "../productPerformance/search"
-import { Inter } from 'next/font/google'
+import { useRouter } from "next/router"
+import { hasCookie } from "cookies-next"
 
 export default function MenPage() {
+    const router = useRouter()
+    useEffect(()=>{
+        if(!hasCookie('account_exist')) router.push('/')
+    },[])
     const hrefsrc = '/storePage/1'
     const urlMan = '/images/publicPageImages/tocnamdep'
     const [page,setPage]=useState(2)
