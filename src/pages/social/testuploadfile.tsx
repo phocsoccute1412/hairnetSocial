@@ -15,8 +15,8 @@ const Homee:NextPage<Props> =()=>{
             if(!selectedFile) return
             const formData = new FormData()
             formData.append('myImage', selectedFile)
-            // const {data} = await axios.post("/api/testImage", formData)
-            // console.log(data)
+            const {data} = await axios.post("/api/testImage", formData)
+            console.log(data)
         } catch (error:any) {
             console.log(error.response?.data)
         }
@@ -24,7 +24,7 @@ const Homee:NextPage<Props> =()=>{
     }
     return (
         <div>
-            <form action="/api/testImage" method="POST">
+            {/* <form action="/api/testImage" method="POST"> */}
             <label htmlFor="">
                 <input type="file"
                 onChange={({target}) =>{
@@ -37,7 +37,7 @@ const Homee:NextPage<Props> =()=>{
                 <div>{selectedImage?(<img src={selectedImage} alt="" />):<span>Select Image</span>}</div>
             </label>
             <button type="submit" onClick={handleUpload}>submit</button>
-            </form>
+            {/* </form> */}
         </div>
     )
 }
