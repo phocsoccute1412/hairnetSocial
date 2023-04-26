@@ -34,5 +34,6 @@ const handler : NextApiHandler = async (req, res) => {
     await fs.mkdir(path.join(process.cwd()+'/public', '/uploads'))
   }
   readFile(req, true)
+  res.status(200).json({message:'upload successful'})
 }
 export default handler
