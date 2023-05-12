@@ -12,22 +12,25 @@ import { hasCookie } from "cookies-next"
 
 export default function MenPage() {
     const router = useRouter()
+
     useEffect(()=>{
         if(!hasCookie('account_exist')) router.push('/')
     },[])
+
     const urlWoman = "/images/publicPageImages/tocnu"
     const [page,setPage]=useState(5)
+
     if(page > 13) setPage(5)
     if(page < 5) setPage(13)
+
     const keys = [1,2,3,4,1000]
+
     const blocks = keys.map(key =>{
         return (
             <ProductBlock key={key} num={page} url={urlWoman} slug={key} hairName='hairstore1'></ProductBlock>
         )
     })
-    const [arr,setArr]=useState([])
-    const callBackFunction = (child:never) =>setArr([child])
-    console.log(arr)
+
     return (
         <>
             <Head>
@@ -40,7 +43,7 @@ export default function MenPage() {
             <h1 className={style.titleMenPage}>Woman Page</h1>
             <div className={style.frame}>
             <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
-            parentCallBack={callBackFunction}></SearchInput>
+            productShopName='hairstore1'></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}

@@ -30,7 +30,7 @@ export default async function insertDBSetShop(req:NextApiRequest, res:NextApiRes
                 rank:req.body.shoprank,
                 idAccountAdmin:idAccount[0]._id
             })
-            res.status(200).json({message:'account added successfully'})
+            res.status(200).json({messenger:'Account created successfully'})
         }
       }
     catch(err) {console.log(err)}

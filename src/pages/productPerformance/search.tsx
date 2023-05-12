@@ -4,11 +4,15 @@ import { useState } from "react"
 
 export default function SearchInput(props:any){
     const [message,setMessage] = useState('')
+
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const eventValue = event.target.value
         setMessage(eventValue)
-        props.parentCallBack(message)
     };
+
+    if(message === props.productShopName) console.log(true)
+    else console.log(false)
+
     return (
         <>
         <div className={props.wrapsearch}>

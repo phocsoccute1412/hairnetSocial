@@ -11,7 +11,13 @@ const nextConfig = {
       },
     ],
   },
-  outputFileTracing: false
+  outputFileTracing: false,
 }
 
 module.exports = nextConfig
+
+module.exports = {
+  experimental: {
+    outputStandalone: true,
+  },
+}

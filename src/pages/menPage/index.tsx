@@ -2,7 +2,7 @@ import Header from "../header"
 import Footer from "../footer"
 import style from "../../styles/menPage.module.css"
 import ProductBlock from "../productPerformance/productBlock"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
@@ -12,30 +12,31 @@ import { hasCookie } from "cookies-next"
 
 export default function MenPage() {
     const router = useRouter()
+    const getShopName = useRef<HTMLParagraphElement>(null)
+
     useEffect(()=>{
         if(!hasCookie('account_exist')) router.push('/')
     },[])
+
     const hrefsrc = '/storePage/1'
+
     const urlMan = '/images/publicPageImages/tocnamdep'
     const [page,setPage]=useState(2)
+
     if(page > 13) setPage(2)
     if(page < 2) setPage(13)
+
     const keys = [1,2,3,4,1000]
     const blocks = keys.map(key =>{
         return (
-            <ProductBlock key={key} num={page} url={urlMan} slug={key} hairName="hairStore1"></ProductBlock>
+            <ProductBlock key={key} num={page} url={urlMan} slug={key} hairName="hairStore1" ref={getShopName}></ProductBlock>
         )
     })
-    const [arr,setArr]=useState([])
-    const callBackFunction = (child:never) =>setArr([child])
-    const prop = [...blocks]
-    useEffect(()=>{
-        for (let i = 0; i < prop.length; i++){
-            if(prop[i].props.hairName==arr[arr.length-1]) console.log(true)
-            else console.log(false)
-        }
-        console.log(arr[0])
-    },[arr])
+
+
+    const objShopName = getShopName.current
+    if(objShopName) console.log(objShopName)
+    
     return (
         <>
             <Head>
@@ -48,7 +49,7 @@ export default function MenPage() {
             <h1 className={style.titleMenPage}>Men Page</h1>
             <div className={style.frame}>
             <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
-            parentCallBack={callBackFunction}></SearchInput>
+            productShopName='hairStore1'></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}

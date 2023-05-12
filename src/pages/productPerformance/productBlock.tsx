@@ -2,15 +2,18 @@ import Image from "next/image"
 import Link from "next/link"
 import star from "../../../public/images/publicPageImages/star.png"
 import MenPage from "../../styles/menPage.module.css"
+import React, { forwardRef, Ref } from 'react';
 
-export default function ProductBlock(props:any) {
+const ProductBlock = (props:any)=> {
     const imageUrl = `${props.url}${props.num}.jpg`
     const arrayStar = [1,2,3,4,5]
+
     const ranks = arrayStar.map((rank)=>{
         return (
             <Image src={star} alt='picture' className={MenPage.star} key={rank}></Image>
         )
     })
+
     return (
         <><Link href={`/storePage/${props.slug}`} className={MenPage.linkProduct}>
             <div className={MenPage.framePart}>
@@ -32,6 +35,7 @@ export default function ProductBlock(props:any) {
         </>
     )
 }
+export default ProductBlock
 // ProductBlock.defaultProps = {
 //     framePart:'framePart',
 //     imageHair:'',
