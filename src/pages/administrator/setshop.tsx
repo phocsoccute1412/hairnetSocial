@@ -31,6 +31,7 @@ export default function AdminPage():JSX.Element{
         const formData = new FormData()
         const formDataSlider = new FormData()
         // formData.append("LogoBusiness", fileSelected)
+
         for(let i = 0; i < fileSlider.length; i++){
             formDataSlider.append('ImageSlider[]', fileSlider[i])
         }
@@ -114,13 +115,4 @@ export default function AdminPage():JSX.Element{
             </div>
         </>
     )
-}
-
-function listImages(urlImages:any):ReactNode{
-    if(!urlImages) return
-    urlImages.map((urlImage:any, index:any)=>{
-        return (
-            <Image src={urlImage} alt='picture' width={100} height={100} key={index}></Image>
-        )
-    })
 }

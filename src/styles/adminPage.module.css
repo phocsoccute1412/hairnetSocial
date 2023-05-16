@@ -73,3 +73,7 @@
 .form_set_shop form button:hover {
     color:lightblue;
 }
+.wrap_result {
+    margin-left:400px;
+    margin-top:200px;
+}

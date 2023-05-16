@@ -10,8 +10,11 @@ export default function SearchInput(props:any){
         setMessage(eventValue)
     };
 
-    if(message === props.productShopName) console.log(true)
-    else console.log(false)
+    const {productShopName} = props
+    for(let i = 0; i < productShopName.length; i++){
+        if(message === productShopName[i]) console.log(true)
+        else console.log(false)
+    }
 
     return (
         <>

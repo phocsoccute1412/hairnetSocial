@@ -1,12 +1,23 @@
 import Image from "next/image"
+import {useState, useEffect} from "react"
 
 export default function SuggestButton(props:any){
-    const arrayMale = ['Buzz Cut', 'Layer', 'Side-Park' ]
+    const [arrayMale, setArrayMale] = useState([])
     const arrayFemale = ['Layer','Uốn','Nhuộm']
+
+    useEffect(()=>{
+        fetch('http://localhost:3000/api/fetchMaleTypeHair')
+        .then(response => response.json())
+        .then(data => {
+            setArrayMale(data)
+        })
+    },[])
     var suggests
+
     if(props.checkArray)
-        suggests = arrayMale.map(suggest => <p key={suggest}>{suggest}</p>)
+        suggests = arrayMale.map((suggest:any) => <p key={suggest._id}>{suggest.type}</p>)
     else suggests = arrayFemale.map(suggest => <p key={suggest}>{suggest}</p>)
+
     return (
         <>
             <div className={props.dropdownSuggestButton}>

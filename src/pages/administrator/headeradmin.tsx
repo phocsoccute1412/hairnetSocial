@@ -1,5 +1,5 @@
-import Image from "next/image"
 import adminheadercss from "../../styles/adminPage.module.css"
+
 export default function AdminHeader (){
     return (
         <>

@@ -24,9 +24,10 @@
     float:left;
     height:180px;
     cursor: pointer;
+    box-sizing: content-box;
 }
 .framePart:first-child{
-    margin-left:4.5%;
+    margin-left:4.2%;
 }
 .imagePart {
     border-top-left-radius: 20px;
@@ -52,7 +53,7 @@
     margin-bottom: 0;
 }
 .blockInside p {
-    margin-top:3px;
+    margin-top:-3px;
     margin-left:9px;
     width:107.2px;
     height:18%;
@@ -73,9 +74,9 @@
     font-size:20%;
     float:left;
 }
-.rowEach:nth-child(n+1){
+.rowEach{
     width:100%;
-    height:220px;
+    height:218px;
     margin-top:6%;
 }
 #rowEachFirst {

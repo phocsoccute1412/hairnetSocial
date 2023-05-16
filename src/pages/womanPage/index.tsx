@@ -2,7 +2,7 @@ import Header from "../header"
 import Footer from "../footer"
 import style from "../../styles/menPage.module.css"
 import ProductBlock from "../productPerformance/productBlock"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
@@ -12,9 +12,13 @@ import { hasCookie } from "cookies-next"
 
 export default function MenPage() {
     const router = useRouter()
+    const [dataRes, setDataRes] = useState([])
 
     useEffect(()=>{
         if(!hasCookie('account_exist')) router.push('/')
+        fetch('http://localhost:3000/api/fetchInfoProduct')
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
     },[])
 
     const urlWoman = "/images/publicPageImages/tocnu"
@@ -23,11 +27,13 @@ export default function MenPage() {
     if(page > 13) setPage(5)
     if(page < 5) setPage(13)
 
-    const keys = [1,2,3,4,1000]
-
-    const blocks = keys.map(key =>{
+    const arrayType:Array<any> = []
+    const blocks = dataRes.map((data:any) =>{
+        arrayType.push(data.listStore.type)
+        arrayType.push(data.name)
         return (
-            <ProductBlock key={key} num={page} url={urlWoman} slug={key} hairName='hairstore1'></ProductBlock>
+            <ProductBlock key={data._id} num={page} url={urlWoman} slug={data.name} hairName={data.name}
+            typeHair={data.listStore.type} ranks={data.rank}></ProductBlock>
         )
     })
 
@@ -43,7 +49,7 @@ export default function MenPage() {
             <h1 className={style.titleMenPage}>Woman Page</h1>
             <div className={style.frame}>
             <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
-            productShopName='hairstore1'></SearchInput>
+            productShopName={arrayType}></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}

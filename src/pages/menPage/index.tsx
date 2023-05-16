@@ -12,13 +12,15 @@ import { hasCookie } from "cookies-next"
 
 export default function MenPage() {
     const router = useRouter()
-    const getShopName = useRef<HTMLParagraphElement>(null)
+    const [dataRes, setDataRes] = useState([])
+    const refProduct = useRef(null)
 
     useEffect(()=>{
         if(!hasCookie('account_exist')) router.push('/')
+        fetch('http://localhost:3000/api/fetchInfoProduct')
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
     },[])
-
-    const hrefsrc = '/storePage/1'
 
     const urlMan = '/images/publicPageImages/tocnamdep'
     const [page,setPage]=useState(2)
@@ -26,17 +28,16 @@ export default function MenPage() {
     if(page > 13) setPage(2)
     if(page < 2) setPage(13)
 
-    const keys = [1,2,3,4,1000]
-    const blocks = keys.map(key =>{
+    const arrayType:Array<any> = []
+    const blocks = dataRes.map((data:any) =>{
+        arrayType.push(data.listStore.type)
+        arrayType.push(data.name)
         return (
-            <ProductBlock key={key} num={page} url={urlMan} slug={key} hairName="hairStore1" ref={getShopName}></ProductBlock>
+            <ProductBlock key={data._id} num={page} url={urlMan} slug={data.name} hairName={data.name}
+            typeHair={data.listStore.type} ranks = {data.rank}></ProductBlock>
         )
     })
-
-
-    const objShopName = getShopName.current
-    if(objShopName) console.log(objShopName)
-    
+    console.log(arrayType)
     return (
         <>
             <Head>
@@ -49,7 +50,7 @@ export default function MenPage() {
             <h1 className={style.titleMenPage}>Men Page</h1>
             <div className={style.frame}>
             <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
-            productShopName='hairStore1'></SearchInput>
+            productShopName={arrayType}></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}
