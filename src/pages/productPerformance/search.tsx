@@ -4,18 +4,20 @@ import { useState } from "react"
 
 export default function SearchInput(props:any){
     const [message,setMessage] = useState('')
+    const {productShopName} = props
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const eventValue = event.target.value
         setMessage(eventValue)
     };
 
-    const {productShopName} = props
     for(let i = 0; i < productShopName.length; i++){
-        if(message === productShopName[i]) console.log(true)
-        else console.log(false)
+        if(message === productShopName[i]){
+            props.functionTest(productShopName[i])
+        }
     }
 
+    if(message == '') props.functionTest('')
     return (
         <>
         <div className={props.wrapsearch}>

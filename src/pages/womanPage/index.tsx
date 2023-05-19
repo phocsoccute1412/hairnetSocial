@@ -13,13 +13,42 @@ import { hasCookie } from "cookies-next"
 export default function MenPage() {
     const router = useRouter()
     const [dataRes, setDataRes] = useState([])
+    const [dataResRow2, setDataResRow2] = useState([])
+    const [dataResRow3, setDataResRow3] = useState([])
+    const [testValueSearch, setTestValueSearch]=useState('')
 
     useEffect(()=>{
         if(!hasCookie('account_exist')) router.push('/')
-        fetch('http://localhost:3000/api/fetchInfoProduct')
+        
+    },[])
+
+    useEffect(() =>{
+        if(testValueSearch!=''){
+        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=0&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
-    },[])
+
+        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=5&filterSearch=${testValueSearch}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow2(data))
+
+        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=10&filterSearch=${testValueSearch}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow3(data))}
+        else {
+            fetch('http://localhost:3000/api/fetchInfoProduct?skipValue=0')
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
+
+        fetch('http://localhost:3000/api/fetchInfoProduct?skipValue=5')
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow2(data))
+
+        fetch('http://localhost:3000/api/fetchInfoProduct?skipValue=10')
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow3(data))
+        }
+    },[testValueSearch])
 
     const urlWoman = "/images/publicPageImages/tocnu"
     const [page,setPage]=useState(5)
@@ -37,6 +66,20 @@ export default function MenPage() {
         )
     })
 
+    const block_row_2 = dataResRow2.map((data:any) =>{
+        return (
+            <ProductBlock key={data._id} num={page} url={urlWoman} slug={data.name} hairName={data.name}
+            typeHair={data.listStore.type} ranks = {data.rank}></ProductBlock>
+        )
+    })
+
+    const block_row_3 = dataResRow3.map((data:any) =>{
+        return (
+            <ProductBlock key={data._id} num={page} url={urlWoman} slug={data.name} hairName={data.name}
+            typeHair={data.listStore.type} ranks = {data.rank}></ProductBlock>
+        )
+    })
+
     return (
         <>
             <Head>
@@ -49,7 +92,7 @@ export default function MenPage() {
             <h1 className={style.titleMenPage}>Woman Page</h1>
             <div className={style.frame}>
             <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
-            productShopName={arrayType}></SearchInput>
+            productShopName={arrayType} functionTest={setTestValueSearch}></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}
@@ -74,12 +117,12 @@ export default function MenPage() {
                 {/* hết row 1 */}
                 {/* row 2 */}
                 <div className={style.rowEach}>
-                    <>{blocks}</>
+                    <>{block_row_2}</>
                 </div>
                 {/* hết row 2 */}
                 {/* row 3 */}
                 <div className={style.rowEach}>
-                    <>{blocks}</>
+                    <>{block_row_3}</>
                 </div>
                 {/* hết row 3 */}
                 <div className={style.changeParent}>

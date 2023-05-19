@@ -26,23 +26,24 @@ export default function AdminPage():JSX.Element{
 
         setUploading(true)
 
-        if(!fileSlider) return
+        // if(!fileSlider) return
         const formDataDB = new FormData()
-        const formData = new FormData()
-        const formDataSlider = new FormData()
-        // formData.append("LogoBusiness", fileSelected)
+        // const formData = new FormData()
+        // const formDataSlider = new FormData()
+        // // formData.append("LogoBusiness", fileSelected)
 
-        for(let i = 0; i < fileSlider.length; i++){
-            formDataSlider.append('ImageSlider[]', fileSlider[i])
-        }
+        // for(let i = 0; i < fileSlider.length; i++){
+        //     formDataSlider.append('ImageSlider[]', fileSlider[i])
+        // }
 
-        // const {data} = await axios.post('/api/testImage', formData)
-        const dataSlider = await axios.post('/api/handleImageSliderShop',formDataSlider)
+        // // const {data} = await axios.post('/api/testImage', formData)
+        // const dataSlider = await axios.post('/api/handleImageSliderShop',formDataSlider)
 
-        // const imageURL = `/uploads/images_${fileSelected.name}`
-        // formDataDB.append('urlImage',imageURL)
-        // formDataDB.append('shopname', shopname)
-        // const insertImageURL = await axios.post('/api/handleInsertImageURL', formDataDB)
+        if(!fileSelected) return
+        const imageURL = `/uploads/images_${fileSelected.name}`
+        formDataDB.append('urlImage',imageURL)
+        formDataDB.append('shopname', shopname)
+        const insertImageURL = await axios.post('/api/handleInsertImageURL', formDataDB)
 
         setUploading(false)
     }
