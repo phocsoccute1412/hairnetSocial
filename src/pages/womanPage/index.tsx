@@ -23,6 +23,9 @@ export default function MenPage() {
     },[])
 
     useEffect(() =>{
+        setDataRes([])
+        setDataResRow2([])
+        setDataResRow3([])
         if(testValueSearch!=''){
         fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=0&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())

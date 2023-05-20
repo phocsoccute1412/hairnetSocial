@@ -99,10 +99,10 @@ export default function PageStore(){
                         <Image src="/images/publicPageImages/dropdown.png" alt='picture'
                         width={200} height={200}></Image>
                     </button>
-                    <Search wrapsearch={storepagecss.wrapsearch}
+                    {/* <Search wrapsearch={storepagecss.wrapsearch}
                     searchinput={storepagecss.searchinput}
                     labelsearch={storepagecss.labelsearch}
-                    parentCallBack={callBackFunc}></Search>
+                    parentCallBack={callBackFunc}></Search> */}
                 </div>
                 <div className={storepagecss.rowbody}>
                     {blocks}

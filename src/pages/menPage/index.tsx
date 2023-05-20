@@ -22,6 +22,9 @@ export default function MenPage() {
     },[])
 
     useEffect(() =>{
+        setDataRes([])
+        setDataResRow2([])
+        setDataResRow3([])
         if(testValueSearch!=''){
         fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=0&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
@@ -59,6 +62,7 @@ export default function MenPage() {
     const blocks = dataRes.map((data:any) =>{
         arrayType.push(data.listStore.type)
         arrayType.push(data.name)
+        
         return (
             <ProductBlock key={data._id} num={page} url={urlMan} slug={data.name} hairName={data.name}
             typeHair={data.listStore.type} ranks = {data.rank}></ProductBlock>
