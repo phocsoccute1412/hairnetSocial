@@ -19,7 +19,10 @@ export default function DropdownButton(props:any){
                     }
                     if(eles!= null) eles.classList.toggle(props.active)
                 }}></Image>
-                <div id= 'target' className={props.noidung_dropdown}>
+                <div id= 'target' className={props.noidung_dropdown} onMouseLeave={()=>{
+                    const elesDropDown:any = document.querySelector('#target')
+                    elesDropDown.classList.remove(props.active)
+                }}>
                    <p onClick={()=>{
                         setExchange(!exchange)
                    }}>{`Rank ${insOrDes}`}</p>

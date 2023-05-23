@@ -15,7 +15,10 @@ export default function SuggestButton(props:any){
     var suggests
 
     if(props.checkArray)
-        suggests = arrayMale.map((suggest:any) => <p key={suggest._id}>{suggest.type}</p>)
+        suggests = arrayMale.map((suggest:any) => <p onClick={(e)=>{
+            const valueParagraph = e.target as HTMLParagraphElement
+            props.setFilter(valueParagraph.textContent)
+        }} key={suggest._id}>{suggest.type}</p>)
     else suggests = arrayFemale.map(suggest => <p key={suggest}>{suggest}</p>)
 
     return (
@@ -24,13 +27,14 @@ export default function SuggestButton(props:any){
                 <Image src="/images/publicPageImages/suggest.png" alt="picture"
                 width={500} height={500}
                 style={{width:"30px",height:"30px",borderRadius:"5px"}}
-                className={props.nut_dropdownSuggest} onClick={()=>{
+                className={props.nut_dropdownSuggest} onClick={(e)=>{
                     const eles:any = document.querySelector('#Suggest')
                     const elesDropDown:any = document.querySelector('#target')
                     if(elesDropDown != null){
                         if(elesDropDown.classList.contains(props.active)) elesDropDown.classList.remove(props.active)
                     }
                     if(eles!= null) eles.classList.toggle(props.activeSuggest)
+                    if(!eles.classList.contains(props.activeSuggest)) props.setFilter('')
                 }}></Image>
                 <div id= 'Suggest' className={props.noidung_dropdownSuggest}>
                    <>{suggests}</>

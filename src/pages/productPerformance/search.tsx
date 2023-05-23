@@ -4,20 +4,14 @@ import { useState } from "react"
 
 export default function SearchInput(props:any){
     const [message,setMessage] = useState('')
-    const {productShopName} = props
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const eventValue = event.target.value
         setMessage(eventValue)
     };
 
-    for(let i = 0; i < productShopName.length; i++){
-        if(message === productShopName[i]){
-            props.functionTest(productShopName[i])
-        }
-    }
+    props.functionTest(message.toUpperCase())
 
-    if(message == '') props.functionTest('')
     return (
         <>
         <div className={props.wrapsearch}>
@@ -27,7 +21,12 @@ export default function SearchInput(props:any){
             height={19}></Image>
             </label>
             <input type="text" id={props.searchinput} placeholder="Hair Type"
-            onChange={handleInputChange} value={message}/>
+            onChange={handleInputChange} value={message} onFocus={(e)=>{
+                const suggestButton = document.querySelector('#Suggest')
+                const dropdown = document.querySelector('#target')
+                suggestButton?.classList.remove(props.activeSuggest)
+                dropdown?.classList.remove(props.active)
+            }}/>
         </div>
         </>
     )

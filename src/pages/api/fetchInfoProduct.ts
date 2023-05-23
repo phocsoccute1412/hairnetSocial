@@ -50,17 +50,22 @@ const fetchInfoProduct:NextApiHandler = async (req, res)=> {
             _id:1,
             rank:1,
             name:1,
+            upperName:{$toUpper:'$name'},
             'listStore.type':1,
+            upperType:{$toUpper:'$listStore.type'},
             'srcImage.src':1
         }
     })
 
-    if(filterSearchValue!=undefined) pipeline.push({'$match':{'listStore.type':filterSearchValue}})
+    if(filterSearchValue!=undefined) pipeline.push({'$match':{'$or':[
+        {upperName:filterSearchValue.toUpperCase()},
+        {upperType:filterSearchValue.toUpperCase()}
+    ]}})
 
     const joinCollect = await listOfMaleHairs.aggregate(pipeline).sort({_id:-1}).skip(value).limit(5).toArray()
     for(var i = 0; i <joinCollect.length; i++) {
         for(var j = 0; j < i;j++){
-            if(joinCollect[i].name === joinCollect[j].name && joinCollect[i].listStore.type === joinCollect[j].listStore.type){
+            if(joinCollect[i].name === joinCollect[j].name && joinCollect[i].upperType === joinCollect[j].upperType){
                 joinCollect[j]._id = joinCollect[i]._id
             }
         }

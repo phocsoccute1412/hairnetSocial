@@ -1,10 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { hasCookie, getCookie } from 'cookies-next'
 import homecss from '../styles/homePage.module.css'
+import { useEffect, useState } from 'react'
 const Picture=require('../../public/images/publicPageImages/Logo2.png')
 const Ava=require('../../public/images/publicPageImages/Logo.png')
 
 export default function Header() {
+  const [href, setHref] = useState('/login')
+  useEffect(()=>{
+    const loginButton = document.querySelector(`#${homecss.loginHeader}`) as HTMLHeadingElement
+    const linkLogin = document.querySelector('#linkLogin') as HTMLLinkElement
+    if(hasCookie('account_exist')) {
+      const username  = getCookie('account_admin_exist')?.toString()
+      var userNameObj
+      if(username){
+        userNameObj= JSON.parse(username)
+      }
+      loginButton.textContent= userNameObj.username
+      loginButton.style.color="yellow"
+      setHref('')
+    }
+  },[])
+
     return <>
     <div className={homecss.Header}>
         <div className={homecss.logo}>
@@ -36,7 +54,7 @@ export default function Header() {
             </div>
         </div>
         <div className={homecss.headerright}>
-          <Link href='/login'>
+          <Link id='linkLogin' href={href}>
             <h4 id={homecss.loginHeader}>Login</h4>
           </Link>
           <Image src={Ava} alt='picture' id={homecss.headerAvatar} onClick={()=>{
