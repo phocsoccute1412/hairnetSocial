@@ -26,6 +26,7 @@ export default function SearchInput(props:any){
                 const dropdown = document.querySelector('#target')
                 suggestButton?.classList.remove(props.activeSuggest)
                 dropdown?.classList.remove(props.active)
+                props.functionFilter('')
             }}/>
         </div>
         </>

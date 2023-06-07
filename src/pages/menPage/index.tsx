@@ -29,67 +29,67 @@ export default function MenPage() {
         setDataResRow3([])
 
         if(testValueSearch && !preValueSearch){
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+5}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+10}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))}
 
         else if(!testValueSearch && !preValueSearch){
-            fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+5}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+10}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))
         }
 
         else if(!testValueSearch&&preValueSearch){
-            fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page}&filterSearch=${preValueSearch}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${preValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+5}&filterSearch=${preValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${preValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+10}&filterSearch=${preValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${preValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))}
         else if(testValueSearch===''&&preValueSearch){
-            fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+5}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+10}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))
         }
         else{
-            fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page}&filterSearch=${testValueSearch}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+5}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchInfoProduct?skipValue=${page+10}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))
         }
@@ -98,23 +98,29 @@ export default function MenPage() {
 
     if(page < 0) setPage(0)
     const blocks = dataRes.map((data:any) =>{
+        const price = parseInt(data.Products.price).toLocaleString().replace(/,/g,'.')
+        
         return (
-            <ProductBlock key={data._id} url={data.srcImage.src} slug={data.name} hairName={data.name}
-            typeHair={data.listStore.type} ranks = {data.rank}></ProductBlock>
+            <ProductBlock key={data._id} url={data.Products.imageSrc} slug={data.name} hairName={data.name}
+            typeHair={data.Products.title} ranks = {data.rank} price={price}></ProductBlock>
         )
     })
 
     const block_row_2 = dataResRow2.map((data:any) =>{
+        const price = parseInt(data.Products.price).toLocaleString().replace(/,/g,'.')
+
         return (
-            <ProductBlock key={data._id} url={data.srcImage.src} slug={data.name} hairName={data.name}
-            typeHair={data.listStore.type} ranks = {data.rank}></ProductBlock>
+            <ProductBlock key={data._id} url={data.Products.imageSrc} slug={data.name} hairName={data.name}
+            typeHair={data.Products.title} ranks = {data.rank} price={price}></ProductBlock>
         )
     })
 
     const block_row_3 = dataResRow3.map((data:any) =>{
+        const price = parseInt(data.Products.price).toLocaleString().replace(/,/g,'.')
+
         return (
-            <ProductBlock key={data._id} url={data.srcImage.src} slug={data.name} hairName={data.name}
-            typeHair={data.listStore.type} ranks = {data.rank}></ProductBlock>
+            <ProductBlock key={data._id} url={data.Products.imageSrc} slug={data.name} hairName={data.name}
+            typeHair={data.Products.title} ranks = {data.rank} price={price}></ProductBlock>
         )
     })
     
@@ -130,7 +136,8 @@ export default function MenPage() {
             <h1 className={style.titleMenPage}>Men Page</h1>
             <div className={style.frame}>
             <SearchInput searchinput={style.searchinput} labelsearch={style.labelsearch} wrapsearch={style.wrapsearch}
-             functionTest={setTestValueSearch} activeSuggest={style.activeSuggest} active={style.active}></SearchInput>
+             functionTest={setTestValueSearch} activeSuggest={style.activeSuggest} active={style.active}
+             functionFilter={setPreValueSearch}></SearchInput>
             <div className={style.buttonDropDown}>
                 <DropdownButton 
                 dropdown={style.dropdown}

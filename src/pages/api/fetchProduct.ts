@@ -25,34 +25,24 @@ const fetchInfoProduct:NextApiHandler = async (req, res)=> {
     const pipeline = []
     
     pipeline.push({'$lookup': {
-        from: "MaleHairList",
+        from: "Products",
         localField: "name",
-        foreignField:"listStoreHave",
-        as: "listStore"
+        foreignField:"hostID",
+        as: "Products"
     }},
     {
-        '$unwind':"$listStore"
-    },
-    {
-        '$lookup': {
-            from: "Images",
-            localField:"name",
-            foreignField:"HostID",
-            as:"srcImage"
-        }
-    },
-    {
-        '$unwind': "$srcImage"
+        '$unwind':"$Products"
     },
     {
         '$project': {
             _id:1,
             rank:1,
             name:1,
+            'Products.title':1,
             upperName:{$toUpper:'$name'},
-            'listStore.type':1,
-            upperType:{$toUpper:'$listStore.type'},
-            'srcImage.src':1
+            upperType:{$toUpper:'$Products.title'},
+            'Products.imageSrc':1,
+            'Products.price':1
         }
     })
 

@@ -1,10 +1,17 @@
 import { useState } from "react"
 import Image from "next/image"
 export default function DropdownButton(props:any){
+    const [arrangePrice,setArrangePrice]=useState(false)
     const [exchange, setExchange]=useState(false)
+
     var insOrDes = ''
+    var arrangePriceVariable = ''
+
     if(exchange) insOrDes = 'Increase'
     else insOrDes = 'Decrease'
+
+    if(arrangePrice) arrangePriceVariable='Increase'
+    else arrangePriceVariable='Decrease'
     return (
         <>
             <div className={props.dropdown}>
@@ -26,7 +33,9 @@ export default function DropdownButton(props:any){
                    <p onClick={()=>{
                         setExchange(!exchange)
                    }}>{`Rank ${insOrDes}`}</p>
-                   <p>Layer</p>
+                   <p onClick={()=>{
+                        setArrangePrice(!arrangePrice)
+                   }}>{`Price ${arrangePriceVariable}`}</p>
                    <p>Side-Part</p>
                 </div>
             </div>

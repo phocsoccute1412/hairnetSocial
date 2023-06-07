@@ -12,7 +12,7 @@ export default function Header() {
     const loginButton = document.querySelector(`#${homecss.loginHeader}`) as HTMLHeadingElement
     const linkLogin = document.querySelector('#linkLogin') as HTMLLinkElement
     if(hasCookie('account_exist')) {
-      const username  = getCookie('account_admin_exist')?.toString()
+      const username  = getCookie('account_exist')?.toString()
       var userNameObj
       if(username){
         userNameObj= JSON.parse(username)

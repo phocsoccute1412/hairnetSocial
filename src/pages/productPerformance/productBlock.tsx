@@ -29,7 +29,7 @@ const ProductBlock = (props:any)=> {
                         </div>
                     </div>
                     <div className={MenPage.PriceBlock}>
-                        <h3 className={MenPage.Price} style={{marginTop:-5}}>Price:</h3> <p><b>100.000đ</b></p>
+                        <h3 className={MenPage.Price} style={{marginTop:-5}}>Price:</h3> <p><b>{props.price}đ</b></p>
                     </div>
                 </div>
             </div>
