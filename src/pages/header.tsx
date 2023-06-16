@@ -7,7 +7,10 @@ const Picture=require('../../public/images/publicPageImages/Logo2.png')
 const Ava=require('../../public/images/publicPageImages/Logo.png')
 
 export default function Header() {
+
   const [href, setHref] = useState('/login')
+  const [userNameCookie, setUserNameCookie]= useState('')
+
   useEffect(()=>{
     const loginButton = document.querySelector(`#${homecss.loginHeader}`) as HTMLHeadingElement
     const linkLogin = document.querySelector('#linkLogin') as HTMLLinkElement
@@ -19,7 +22,8 @@ export default function Header() {
       }
       loginButton.textContent= userNameObj.username
       loginButton.style.color="yellow"
-      setHref('')
+      setHref('#')
+      setUserNameCookie(userNameObj.username)
     }
   },[])
 
@@ -29,7 +33,9 @@ export default function Header() {
           <Link href="/"><Image src={Picture} alt='picture' id={homecss.Logo}></Image></Link>
         </div>
         <div className={homecss.headermain}>
-            <h2 className={homecss.Social}>Social</h2>
+            <Link href={`/social/${userNameCookie}`}>
+              <h2 className={homecss.Social}>Social</h2>
+            </Link>
             <Link href='/menPage'>
               <h2 className={homecss.Men}>Men</h2>
             </Link>

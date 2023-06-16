@@ -19,9 +19,14 @@ export default function SetMember({props}:any){
                     <input type="text" id="password" name="password"/>
                 </div>
                 <div className={props.rowForm}>
-                    <label htmlFor="password">Level</label>
+                    <label htmlFor="level">Level</label>
                     <br />
                     <input type="text" id="level" name="level"/>
+                    <ul>
+                        <li id='levelAdmin'>{`Quản trị (Admin)`}</li>
+                        <li id='levelEdit'>{`Chỉnh sửa (Edit)`}</li>
+                        <li id='levelEdit'>{`Viết bài (Content)`}</li>
+                    </ul>
                 </div>
                 <div className={props.rowForm}>
                     <button type="submit">Save</button>

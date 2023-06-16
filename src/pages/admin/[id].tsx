@@ -9,6 +9,7 @@ import SetCombo from "./setCombo"
 import SetPost from "./setPost"
 import SetProduct from "./setProduct"
 import Help from "./help"
+import SetImage from "./setImage"
 
 import businessCss from '../../styles/adminBusiness.module.css'
 
@@ -38,6 +39,9 @@ export default function PageAdmin(){
                 break;
             case 'Help':
                 setBody(<Help></Help>);
+                break;
+            case 'Set Image':
+                setBody(<SetImage></SetImage>);
                 break;
         }
     },[bodyValue])
@@ -89,7 +93,10 @@ export default function PageAdmin(){
                             setBodyValue('Set Combo')
                         }}>Set Combo</li>
                         <li onClick={(e)=>{
-                            
+                            setBodyValue('Set Image')
+                        }}>Set Image</li>
+                        <li onClick={(e)=>{
+                            setBodyValue('Help')
                         }}>Help</li>
                     </ul>
                 </div>
