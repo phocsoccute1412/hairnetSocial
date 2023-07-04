@@ -128,3 +128,156 @@ img.reelPart__Post {
     bottom: 0;
     left:55%;
 }
+
+.bodyRight__newFeed_wrapper{
+    width:100%;
+    height: 1000px;
+}
+
+.rowFeed {
+    width:100%;
+    height:350px;
+    margin-top:30px;
+}
+
+.rowFeed__feedPart {
+    width:80%;
+    border: 1px solid black;
+    height: 100%;
+    margin-left: 10%;
+    display:flex;
+    background-color: black;
+    border-radius: 10px;
+}
+.rowFeed__feedPart_media {
+    width:30%;
+    height:100%;
+}
+.rowFeed__feedPart_media img {
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+}
+.rowFeed__feedPart_post {
+    width:70%;
+    height:100%;
+}
+.author__wrapper {
+    width:100%;
+    height:13%;
+    display:flex;
+    position: relative;
+}
+.author__wrapper img {
+    margin-top:10px;
+    width:6.5%;
+    height:100%;
+    margin-left:20px;
+    border-radius: 50%;
+}
+.author__wrapper p {
+    color:white;
+    margin-top:20px;
+    margin-left:8px;
+    font-size: 15px;
+    opacity: 0.5;
+}
+.active__green {
+    width:1.8%;
+    height:29.5%;
+    background-color: green;
+    position: absolute;
+    z-index:1;
+    bottom:-22%;
+    left:7%;
+    border-radius: 50%;
+}
+.userFeed {
+    color:white;
+    margin-top:20px;
+    width:100%;
+    height:23%;
+    font-size: 18px;
+    line-height: 22px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.userFeed p {
+    margin-left:25px;
+}
+.emoji {
+    margin-top:14px;
+    width:100%;
+    height:5%;
+    color:white;
+    display: flex;
+}
+.emoji img {
+    margin-left: 20px;
+    width:2.7%;
+    height: 100%;
+    border-radius: 50%;
+}
+.emoji p {
+    font-size: 15px;
+    margin-left:2px;
+}
+.actionButton__wrapper {
+    margin-top:2px;
+    width:100%;
+    height:30px;
+}
+.actionButton__wrapper button{
+    width:50%;
+    cursor: pointer;
+    background-color: #4c4949;
+    color:white;
+    height:100%;
+}
+.actionButton__wrapper button:hover{
+    color:aqua;
+}
+.commentPart {
+    width:100%;
+    height:43.164283%;
+}
+.commentPart__row {
+    width:100%;
+    height:30%;
+    display: flex;
+    margin-top:5px;
+}
+.commentPart__row:first-child{
+    margin-top:10px;
+}
+.commentPart__row img {
+    margin-left:10px;
+    width:6%;
+    height:90%;
+    border-radius: 50%;
+}
+.commentPart__NameAndInput {
+    height: 100%;
+    width:70%;
+}
+.commentPart__NameAndInput h4 {
+    color:white;
+    opacity: 0.5;
+    margin-left:10px;
+    font-size: small;
+    margin-top:5px;
+}
+.commentPart__NameAndInput input {
+    margin-left: 10px;
+    width:100%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.commentPart__NameAndInput p {
+    color:white;
+    margin-left:10px;
+    width:100%;
+    height:100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}

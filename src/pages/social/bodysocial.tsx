@@ -1,5 +1,6 @@
 import LeftSidebar from "./leftsidebar"
 import Reels from "./reels"
+import Feed from "./feed"
 
 import Image from "next/image"
 
@@ -19,6 +20,10 @@ export default function BodySocial(){
                 </div>
                 <div className={socialcss.bodyRight}>
                     <Reels></Reels>
+                    <div className={socialcss.bodyRight__newFeed_wrapper}>
+                        <Feed></Feed>
+                        <Feed></Feed>
+                    </div>
                 </div>
             </div>
         </>
