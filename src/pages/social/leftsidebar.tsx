@@ -3,7 +3,7 @@ import ListOfActiveUser from "./activeuserlist"
 import Image from "next/image"
 
 import socialcss from "../../styles/social.module.css"
-export default function LeftSidebar(){
+export default function LeftSidebar(props:any){
     return (
         <>
             <div className={socialcss.leftSidebar__borderTop}>
@@ -32,8 +32,8 @@ export default function LeftSidebar(){
                     </div>
                 </div>
                 <div className={socialcss.activeList__wrapper}>
-                    <ListOfActiveUser></ListOfActiveUser>
-                    <ListOfActiveUser></ListOfActiveUser>
+                    <ListOfActiveUser setChat={props.setChat} chat={props.chat}></ListOfActiveUser>
+                    <ListOfActiveUser setChat={props.setChat} chat={props.chat}></ListOfActiveUser>
                 </div>
             </div>
         </>

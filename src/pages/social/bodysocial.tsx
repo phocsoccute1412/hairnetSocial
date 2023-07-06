@@ -3,29 +3,59 @@ import Reels from "./reels"
 import Feed from "./feed"
 
 import Image from "next/image"
+import { useState, useEffect } from "react"
 
 import socialcss from "../../styles/social.module.css"
 
 export default function BodySocial(){
+
+    const [chatboxHidden, setChatBoxHidden] = useState(false)
+    const [hiddenLeft, setHiddenLeft] = useState(false)
+    const [srcButton, setSrcButton] = useState('/images/publicPageImages/buttonCarousel.png')
+
+    useEffect(()=>{
+        const chatWindow = document.getElementById(`${socialcss.messageWindow}`) as HTMLDivElement
+        if(!chatboxHidden){
+            chatWindow.style.display="none"
+        }
+        else{
+            chatWindow.style.display="block"
+        }
+
+        if(hiddenLeft) {
+            setSrcButton("/images/publicPageImages/reverseButtionCarousel.png")
+        }
+        else {
+            setSrcButton("/images/publicPageImages/buttonCarousel.png")
+        }
+    },[chatboxHidden, hiddenLeft])
     return (
         <>
             <div className={socialcss.bodySocial__wrapper}>
-                <div className={socialcss.bodyLeft}>
-                    <LeftSidebar></LeftSidebar>
-                    <Image src={"/images/publicPageImages/buttonCarousel.png"}
+                <div className={socialcss.bodyLeft} id={socialcss.leftSideBar}>
+                    <LeftSidebar setChat={setChatBoxHidden} chat={chatboxHidden}></LeftSidebar>
+                    <Image src={srcButton}
                         alt=""
                         width={100}
-                        height={100}>
+                        height={100}
+                        onClick={(e)=>{
+                            const leftSideBar = document.getElementById(`${socialcss.leftSideBar}`) as HTMLDivElement
+                            const rightBody = document.getElementById(`${socialcss.rightSideBar}`) as HTMLDivElement
+                            
+                            setHiddenLeft(!hiddenLeft)
+                            rightBody.classList.toggle(socialcss.animationForRightBody)
+                            leftSideBar.classList.toggle(socialcss.animationLeft)
+                        }}>
                     </Image>
                 </div>
-                <div className={socialcss.bodyRight}>
+                <div className={socialcss.bodyRight} id={socialcss.rightSideBar}>
                     <Reels></Reels>
                     <div className={socialcss.bodyRight__newFeed_wrapper}>
                         <Feed></Feed>
                         <Feed></Feed>
                     </div>
                 </div>
-                <div className={socialcss.messageWindow} id={socialcss.messageWindow}>
+                <div className={socialcss.messageWindow} id={socialcss.messageWindow} hidden={chatboxHidden}>
                     <div className={socialcss.messageWindow__info}
                     onClick={(e)=>{
                         const messageWindow= document.getElementById(`${socialcss.messageWindow}`) as HTMLDivElement
