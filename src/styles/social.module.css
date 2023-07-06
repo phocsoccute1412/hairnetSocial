@@ -1,3 +1,14 @@
+@keyframes move {
+    0% {
+        transform: translate(0,0);
+      }
+    100% {
+        transform: translate(0,300px);
+    }
+}
+.animationWork {
+    animation: move 0.3s ease-in-out forwards;
+}
 .taskbar__wrapper {
     width:100%;
     height:50px;
@@ -28,6 +39,7 @@
     width:30px;
     height:30px;
     margin-top:30%;
+    cursor: pointer;
 }
 #messID {
     margin-right:15px;
@@ -67,9 +79,34 @@
     margin-top:20px;
 }
 .leftSidebar__borderTop_blockInfo {
-    border:1px solid white;
     width: 70%;
     margin-left:15%;
+}
+.leftSidebar__borderTop_blockInfo h2 {
+    color:white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    width:100%;
+}
+.leftSidebar__borderTop_blockInfo ul {
+    color:white;
+    width:100%;
+    margin-top:10px;
+}
+.leftSidebar__borderTop_blockInfo ul li {
+    width:100%;
+    display: flex;
+    font-size: 15px;
+}
+.leftSidebar__borderTop_blockInfo ul li:nth-child(2) {
+    margin-top: 3px;
+}
+.leftSidebar__borderTop_blockInfo ul li:nth-child(2) p{
+    opacity: 0.5;
+}
+.leftSidebar__borderTop_blockInfo ul li:first-child p{
+    color:rgb(32, 186, 32);
 }
 
 .bodyRight {
@@ -267,7 +304,7 @@ img.reelPart__Post {
     font-size: small;
     margin-top:5px;
 }
-.commentPart__NameAndInput input {
+.commentPart__NameAndInput textarea {
     margin-left: 10px;
     width:100%;
     border-radius: 10px;
@@ -280,4 +317,147 @@ img.reelPart__Post {
     height:100%;
     overflow-wrap: break-word;
     word-wrap: break-word;
+}
+.leftSidebar__Options {
+    width:100%;
+}
+.leftSidebar__Options_LikedPages, .leftSidebar__Options_ProductStored{
+    width:100%;
+    display:flex;
+}
+.leftSidebar__Options_LikedPages img, .leftSidebar__Options_ProductStored img{
+    width:30px;
+    height:30px;
+}
+.leftSidebar__Options_ProductStored img {
+    border:1px solid white;
+    background-color: white;
+}
+.leftSidebar__Options_LikedPages p, .leftSidebar__Options_ProductStored p {
+    margin-top:26px;
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+}
+.leftSidebar__Options_LikedPages p:hover, .leftSidebar__Options_ProductStored p:hover{
+    color:lightblue;
+}
+.activeList__wrapper {
+    width:100%;
+}
+.activeListRow {
+    width:100%;
+    display:flex;
+    position: relative;
+    cursor: pointer;
+}
+.activeListRow:hover {
+    background-color: #4c4949;
+}
+.activeListRow p {
+    color:white;
+    margin-top:28px;
+    margin-left:5px;
+}
+.activeListRow img {
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+.activeList__circle {
+    position: absolute;
+    background-color: rgb(37, 207, 37);
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    z-index:1;
+    bottom:0;
+    left:70px;
+}
+#messageWindow {
+    display:block;
+}
+.messageWindow {
+    width:300px;
+    height:340px;
+    position:fixed;
+    z-index:999;
+    bottom:0;
+    left:230px;
+}
+.messageWindow__info {
+    width:100%;
+    height:15%;
+    display:flex;
+    background-color:rgb(20, 93, 93);
+    position: relative;
+}
+.messageWindow__info img {
+    width:35px;
+    height:35px;
+    border-radius: 50%;
+    margin-left:5px;
+    margin-top:7px;
+}
+.messageWindow__info p {
+    color:white;
+    margin-top:10px;
+}
+.messageWindow__info_active {
+    width:10px;
+    height:10px;
+    position: absolute;
+    z-index:1000;
+    bottom:10px;
+    left:30px;
+    border-radius: 50%;
+    background-color: rgb(60, 192, 60);
+}
+#thugon {
+    margin-top:13px;
+    width:26px;
+    height:26px;
+    margin-left:120px;
+    cursor: pointer;
+}
+#hiddenWindow {
+    margin-top:13px;
+    margin-left:7px;
+    width:26px;
+    height:26px;
+    cursor: pointer;
+}
+.messageWindow__body {
+    width:100%;
+    height:70%;
+    background-color: rgb(159, 204, 204);
+}
+.messageWindow__input {
+    width:100%;
+    height:20%;
+    background-color: rgb(20, 93, 93);
+    display:flex;
+}
+.messageWindow__input textarea {
+    width:41%;
+    height: 40%;
+    margin-top:10px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.listFeature {
+    width:40%;
+    height:100%;
+}
+.messageWindow__input img {
+    width:25px;
+    height:25px;
+    margin-top:17px;
+    margin-left:10px;
+    cursor: pointer;
+}
+#happyLife {
+    border-radius: 50%;
 }

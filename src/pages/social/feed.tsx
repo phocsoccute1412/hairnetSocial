@@ -38,7 +38,7 @@ export default function Feed(){
                                 width={500} height={500}></Image>
                                 <div className={socialcss.commentPart__NameAndInput}>
                                     <h4>Hairstore1</h4>
-                                    <input type="text" />
+                                    <textarea name="" id="" cols={1} rows={1}></textarea>
                                 </div>
                             </div>
                             <div className={socialcss.commentPart__row}>

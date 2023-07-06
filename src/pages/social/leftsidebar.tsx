@@ -1,3 +1,4 @@
+import ListOfActiveUser from "./activeuserlist"
 
 import Image from "next/image"
 
@@ -12,10 +13,27 @@ export default function LeftSidebar(){
                     height={100}>
                 </Image>
                 <div className={socialcss.leftSidebar__borderTop_blockInfo}>
-                    <h2></h2>
+                    <h2>nguyễn quốc khánh</h2>
                     <ul>
-                        <li></li>
+                        <li>Status: <p> Active</p></li>
+                        <li>Level: <p> User</p></li>
                     </ul>
+                </div>
+                <div className={socialcss.leftSidebar__Options}>
+                    <div className={socialcss.leftSidebar__Options_LikedPages}>
+                        <Image src={'/uploads/pageFlag.png'} alt=""
+                        width={500} height={500}></Image>
+                        <p>Followed Pages</p>
+                    </div>
+                    <div className={socialcss.leftSidebar__Options_ProductStored}>
+                        <Image src={'/uploads/saveIcon.png'} alt=""
+                        width={500} height={500}></Image>
+                        <p>Stored Products</p>
+                    </div>
+                </div>
+                <div className={socialcss.activeList__wrapper}>
+                    <ListOfActiveUser></ListOfActiveUser>
+                    <ListOfActiveUser></ListOfActiveUser>
                 </div>
             </div>
         </>

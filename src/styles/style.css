@@ -2,3 +2,8 @@
 body {
     background-image:linear-gradient(90deg, #52A6CA 0%, #4C4949 100%);
 }
+body::-webkit-scrollbar{
+    width: 0; /* Adjust as needed */
+    height:0;
+    background: transparent;
+}
