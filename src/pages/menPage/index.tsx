@@ -8,7 +8,8 @@ import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
 import SearchInput from "../productPerformance/search"
 import { useRouter } from "next/router"
-import { hasCookie } from "cookies-next"
+import io from 'socket.io-client';
+
 
 export default function MenPage() {
     const router = useRouter()
@@ -18,10 +19,6 @@ export default function MenPage() {
     const [dataResRow3, setDataResRow3] = useState([])
     const [testValueSearch, setTestValueSearch]=useState('')
     const [preValueSearch, setPreValueSearch]=useState('')
-
-    useEffect(()=>{
-        if(!hasCookie('account_exist')) router.push('/')
-    },[])
 
     useEffect(() =>{
         setDataRes([])
@@ -95,6 +92,10 @@ export default function MenPage() {
         }
 
     },[testValueSearch||preValueSearch||page])
+
+    useEffect(()=>{
+        const socket = io('http://localhost:3000');
+    },[])
 
     if(page < 0) setPage(0)
     const blocks = dataRes.map((data:any) =>{

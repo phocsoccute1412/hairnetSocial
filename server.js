@@ -1,5 +1,7 @@
 const express = require('express') // Sử dụng framework express
 const next = require('next') // Include module next
+const http = require('http');
+const socketIO = require('socket.io');
 
 const port = parseInt(process.env.PORT, 10) || 3000 // Port để chạy app Nextjs, cũng là server nodejs
 const dev = process.env.NODE_ENV !== 'production'
@@ -20,8 +22,19 @@ app.prepare().then(() => {
     return handle(req, res)
   })
 
-  server.listen(port, err => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
-  })
+  // server.listen(port, err => {
+  //   if (err) throw err
+  //   console.log(`> Ready on http://localhost:${port}`)
+  // })
+  const httpServer = http.createServer(server);
+  httpServer.listen(port, (err) => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${port}`);
+  });
+
+  const io = socketIO(httpServer);
+
+  io.on('connection', (socket) => {
+    console.log('A user connected');
+  });
 })
