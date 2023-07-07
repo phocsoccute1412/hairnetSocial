@@ -6,12 +6,36 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 
 import socialcss from "../../styles/social.module.css"
+import homecss from "../../styles/homePage.module.css"
 
 export default function BodySocial(){
 
     const [chatboxHidden, setChatBoxHidden] = useState(false)
     const [hiddenLeft, setHiddenLeft] = useState(false)
     const [srcButton, setSrcButton] = useState('/images/publicPageImages/buttonCarousel.png')
+
+
+    const handleScroll = () => {
+        // Get the scroll position
+        const scrollPosition = window.scrollY;
+
+        // Calculate the desired height based on the scroll position
+        const desiredHeight = 100 + scrollPosition * 0.1*2;
+
+        // Set the element's height
+        const elementHeight = document.getElementById(socialcss.leftSideBar) as HTMLDivElement
+        
+        if(desiredHeight!=100) elementHeight.style.height=desiredHeight+"vh"
+        else elementHeight.style.height="100vh"
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
 
     useEffect(()=>{
         const chatWindow = document.getElementById(`${socialcss.messageWindow}`) as HTMLDivElement
@@ -53,6 +77,9 @@ export default function BodySocial(){
                     <div className={socialcss.bodyRight__newFeed_wrapper}>
                         <Feed></Feed>
                         <Feed></Feed>
+                        <Feed></Feed>
+                        <Feed></Feed>
+                        <Feed></Feed>
                     </div>
                 </div>
                 <div className={socialcss.messageWindow} id={socialcss.messageWindow} hidden={chatboxHidden}>
@@ -68,7 +95,10 @@ export default function BodySocial(){
                         <Image src={"/uploads/thugon.png"} alt=""
                         width={500} height={500} id={socialcss.thugon}></Image>
                         <Image src={"/uploads/hiddenWindow.png"} alt=""
-                        width={500} height={500} id={socialcss.hiddenWindow}></Image>
+                        width={500} height={500} id={socialcss.hiddenWindow}
+                        onClick={(e)=>{
+                            setChatBoxHidden(false)
+                        }}></Image>
                     </div>
                     <div className={socialcss.messageWindow__body}></div>
                     <div className={socialcss.messageWindow__input}>

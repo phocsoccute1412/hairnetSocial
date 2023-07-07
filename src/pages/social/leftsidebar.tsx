@@ -6,7 +6,7 @@ import socialcss from "../../styles/social.module.css"
 export default function LeftSidebar(props:any){
     return (
         <>
-            <div className={socialcss.leftSidebar__borderTop}>
+            <div className={socialcss.leftSidebar__borderTop} id={socialcss.bodyLeft}>
                 <Image src="/uploads/tocnamdep2.jpg"
                     alt=""
                     width={100}
