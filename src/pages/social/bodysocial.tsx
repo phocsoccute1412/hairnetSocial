@@ -4,9 +4,9 @@ import Feed from "./feed"
 
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 import socialcss from "../../styles/social.module.css"
-import homecss from "../../styles/homePage.module.css"
 
 export default function BodySocial(){
 
@@ -56,6 +56,12 @@ export default function BodySocial(){
     return (
         <>
             <div className={socialcss.bodySocial__wrapper}>
+                <div className={socialcss.wayBackHome__wrapper}>
+                    <Link href={'#'}>
+                        <Image src={'/uploads/waybackhome.png'} alt=""
+                        width={500} height={500}></Image>
+                    </Link>
+                </div>
                 <div className={socialcss.bodyLeft} id={socialcss.leftSideBar}>
                     <LeftSidebar setChat={setChatBoxHidden} chat={chatboxHidden}></LeftSidebar>
                     <Image src={srcButton}

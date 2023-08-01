@@ -44,6 +44,16 @@
     width:70%;
     height:100%;
 }
+.leftButton a {
+    color:aqua;
+    margin-top:20px;
+    margin-left:30px;
+    display: inline-block;
+    font-style: italic;
+}
+.leftButton a:hover {
+    color:white;
+}
 
 .rightButton {
     width:28%;
@@ -73,6 +83,19 @@
     width:100%;
     height:auto;
     display:flex;
+}
+.wayBackHome__wrapper {
+    position: fixed;
+    width:40px;
+    height:40px;
+    z-index:9999;
+    bottom:10px;
+    right:10px;
+}
+.wayBackHome__wrapper img {
+    border-radius: 50%;
+    width:100%;
+    height:100%;
 }
 #bodyLeft {
     display: block;
@@ -291,6 +314,7 @@ img.reelPart__Post {
 .emoji p {
     font-size: 15px;
     margin-left:2px;
+    opacity: 0.7;
 }
 .actionButton__wrapper {
     margin-top:2px;
@@ -298,11 +322,13 @@ img.reelPart__Post {
     height:30px;
 }
 .actionButton__wrapper button{
-    width:50%;
     cursor: pointer;
     background-color: #4c4949;
     color:white;
     height:100%;
+}
+.actionButton__Like, .actionButton__Comment, .actionButton__Share{
+    width:calc(100%/3);
 }
 .actionButton__wrapper button:hover{
     color:aqua;

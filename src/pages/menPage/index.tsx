@@ -1,18 +1,18 @@
 import Header from "../header"
 import Footer from "../footer"
-import style from "../../styles/menPage.module.css"
 import ProductBlock from "../productPerformance/productBlock"
-import React, { useState, useEffect, useRef } from "react"
-import Head from "next/head"
 import DropdownButton from "../button/dropdownButton"
 import SuggestButton from "../button/suggestButton"
 import SearchInput from "../productPerformance/search"
-import { useRouter } from "next/router"
+
+import React, { useState, useEffect} from "react"
+import Head from "next/head"
 import io from 'socket.io-client';
 
+import style from "../../styles/menPage.module.css"
 
 export default function MenPage() {
-    const router = useRouter()
+
     const [page,setPage]=useState(0)
     const [dataRes, setDataRes] = useState([])
     const [dataResRow2, setDataResRow2] = useState([])

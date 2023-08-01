@@ -8,6 +8,10 @@ export default function Feed(){
         <>
             <div className={socialcss.rowFeed}>
                 <div className={socialcss.rowFeed__feedPart}>
+                <div className={socialcss.rowFeed__feedPart_media}>
+                        <Image src={'/uploads/images_eximage2.jpg'} alt=""
+                        width={500} height={500}></Image>
+                </div>
                     <div className={socialcss.rowFeed__feedPart_post}>
                         <div className={socialcss.author__wrapper}>
                             <Image src={'/uploads/images_eximage2.jpg'} alt=""
@@ -31,6 +35,7 @@ export default function Feed(){
                         <div className={socialcss.actionButton__wrapper}>
                             <button className={socialcss.actionButton__Like}>Like</button>
                             <button className={socialcss.actionButton__Comment}>Comment</button>
+                            <button className={socialcss.actionButton__Share}>Share</button>
                         </div>
                         <div className={socialcss.commentPart}>
                             <div className={socialcss.commentPart__row}>
@@ -45,10 +50,6 @@ export default function Feed(){
                                 <CommentSocial></CommentSocial>
                             </div>
                         </div>
-                    </div>
-                    <div className={socialcss.rowFeed__feedPart_media}>
-                        <Image src={'/uploads/images_eximage2.jpg'} alt=""
-                        width={500} height={500}></Image>
                     </div>
                 </div>
             </div>

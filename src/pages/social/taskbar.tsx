@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 import socialcss from "../../styles/social.module.css"
 
@@ -7,7 +8,7 @@ export default function Taskbar(){
         <>
             <div className={socialcss.taskbar__wrapper}>
                 <div className={socialcss.leftButton}>
-                    
+                    <Link href={'/signUpFormBusiness/signUpFormBusiness'}>Sign up Business</Link>
                 </div>
                 <div className={socialcss.rightButton}>
                     <div className={socialcss.pushBlock}></div>

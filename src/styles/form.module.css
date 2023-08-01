@@ -1,0 +1,42 @@
+.title {
+    width:100%;
+    text-align: center;
+    margin-top: 20px;
+    color:white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.formSignUpBusiness {
+    display:block;
+    width:400px;
+    height:100px;
+    margin-left:520px;
+    margin-top:30px;
+}
+.rowInput__wrapper {
+    width:100%;
+}
+.formSignUpBusiness label {
+    width:20%;
+}
+.formSignUpBusiness input {
+    margin-top:20px;
+    width:80%;
+    height:25px;
+}
+.rowInput__wrapper:first-child input{
+    margin-left:25px;
+}
+.rowInput__wrapper:nth-child(2) input {
+    margin-left:23px;
+}
+.rowInput__wrapper:nth-child(3) input {
+    margin-left:25px;
+}
+.rowInput__wrapper:nth-child(4) input {
+    margin-left:11px;
+}
+.footer {
+    position: fixed;
+    bottom:0;
+}
