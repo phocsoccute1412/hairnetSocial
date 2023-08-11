@@ -19,6 +19,8 @@ export default function MenPage() {
     const [dataResRow3, setDataResRow3] = useState([])
     const [testValueSearch, setTestValueSearch]=useState('')
     const [preValueSearch, setPreValueSearch]=useState('')
+    const [arrangeOptions, setArrangeOptions] = useState('')
+    const [controlPrice, setControlPrice]=useState('')
 
     useEffect(() =>{
         setDataRes([])
@@ -26,76 +28,148 @@ export default function MenPage() {
         setDataResRow3([])
 
         if(testValueSearch && !preValueSearch){
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))}
 
         else if(!testValueSearch && !preValueSearch){
-            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))
         }
 
         else if(!testValueSearch&&preValueSearch){
-            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${preValueSearch}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${preValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${preValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${preValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${preValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${preValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))}
         else if(testValueSearch===''&&preValueSearch){
-            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))
         }
         else{
-            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}`)
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataRes(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow2(data))
 
-        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}`)
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
         .then((response)=> response.json())
         .then((data)=> setDataResRow3(data))
         }
 
-    },[testValueSearch||preValueSearch||page])
+    },[testValueSearch||preValueSearch||page||arrangeOptions||controlPrice])
 
     useEffect(()=>{
         const socket = io('http://localhost:3000');
     },[])
+
+    useEffect(()=>{
+        setDataRes([])
+        setDataResRow2([])
+        setDataResRow3([])
+
+        if(testValueSearch && !preValueSearch){
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow2(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow3(data))}
+
+        else if(!testValueSearch && !preValueSearch){
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow2(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow3(data))
+        }
+
+        else if(!testValueSearch&&preValueSearch){
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${preValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${preValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow2(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${preValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow3(data))}
+        else if(testValueSearch===''&&preValueSearch){
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow2(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow3(data))
+        }
+        else{
+            fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataRes(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+5}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow2(data))
+
+        fetch(`http://localhost:3000/api/fetchProduct?skipValue=${page+10}&filterSearch=${testValueSearch}&rankArrange=${arrangeOptions}&priceArrange=${controlPrice}`)
+        .then((response)=> response.json())
+        .then((data)=> setDataResRow3(data))
+        }
+    },[controlPrice])
 
     if(page < 0) setPage(0)
     const blocks = dataRes.map((data:any) =>{
@@ -145,7 +219,9 @@ export default function MenPage() {
                 nut_dropdown={style.nut_dropdown}
                 noidung_dropdown={style.noidung_dropdown}
                 active={style.active}
-                activeSuggest={style.activeSuggest}>
+                activeSuggest={style.activeSuggest}
+                setArrangeOptions={setArrangeOptions}
+                setControlPrice={setControlPrice}>
                 </DropdownButton>
                 <SuggestButton
                 dropdownSuggestButton={style.dropdownSuggestButton}

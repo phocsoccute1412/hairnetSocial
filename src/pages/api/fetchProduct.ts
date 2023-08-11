@@ -16,9 +16,23 @@ const fetchInfoProduct:NextApiHandler = async (req, res)=> {
     const router = req.query
     var params = router.skipValue?.toString()
     var filterSearchValue = router.filterSearch?.toString()
+    var rankArrange = router.rankArrange?.toString().split(' ')
+    var priceArrange = router.priceArrange?.toString().split(' ')
+    var rank
+    var price
     var value
 
     if(params!= undefined) value = parseInt(params,10)
+
+    if(rankArrange){
+        if(rankArrange[1]== 'Increase') rank=1
+        else rank=-1
+    }
+
+    if(priceArrange){
+        if(priceArrange[1]== 'Increase') price=1
+        else price=-1
+    }
     
     const db = client.db('hairnet')
     const listOfMaleHairs = db.collection('Businesses')
@@ -51,7 +65,7 @@ const fetchInfoProduct:NextApiHandler = async (req, res)=> {
         {upperType:filterSearchValue.toUpperCase()}
     ]}})
 
-    const joinCollect = await listOfMaleHairs.aggregate(pipeline).sort({_id:-1}).skip(value).limit(5).toArray()
+    const joinCollect = await listOfMaleHairs.aggregate(pipeline).sort({rank:rank, 'Products.price':price}).skip(value).limit(5).toArray()
     for(var i = 0; i <joinCollect.length; i++) {
         for(var j = 0; j < i;j++){
             if(joinCollect[i].name === joinCollect[j].name && joinCollect[i].upperType === joinCollect[j].upperType){

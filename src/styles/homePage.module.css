@@ -11,10 +11,11 @@
     width:100%;
     height:121.13px;
     border:1px solid black;
-    background-color: black;
+    background-color: rgb(26, 24, 24);
 }
 .Header:nth-child(n) {
    font-family: var(--bs-body-font-family);
+   font-weight: 100;
 }
 .Men {
     position: absolute;

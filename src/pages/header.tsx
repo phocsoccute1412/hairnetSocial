@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { hasCookie, getCookie } from 'cookies-next'
 import homecss from '../styles/homePage.module.css'
 import { useEffect, useState } from 'react'
-const Picture=require('../../public/images/publicPageImages/Logo2.png')
+const Picture=require('../../public/uploads/LogoHairNet.png')
 const Ava=require('../../public/images/publicPageImages/Logo.png')
 
 export default function Header() {
@@ -21,7 +21,7 @@ export default function Header() {
         userNameObj= JSON.parse(username)
       }
       loginButton.textContent= userNameObj.username
-      loginButton.style.color="yellow"
+      loginButton.style.color="#FFD700"
       setHref('#')
       setUserNameCookie(userNameObj.username)
     }

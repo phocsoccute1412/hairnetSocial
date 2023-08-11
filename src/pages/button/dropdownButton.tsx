@@ -7,11 +7,11 @@ export default function DropdownButton(props:any){
     var insOrDes = ''
     var arrangePriceVariable = ''
 
-    if(exchange) insOrDes = 'Increase'
-    else insOrDes = 'Decrease'
+    if(exchange) {insOrDes = 'Increase';props.setArrangeOptions(()=>'Rank Increase')}
+    else {insOrDes = 'Decrease';props.setArrangeOptions(()=>'Rank Decrease')}
 
-    if(arrangePrice) arrangePriceVariable='Increase'
-    else arrangePriceVariable='Decrease'
+    if(arrangePrice) {arrangePriceVariable='Increase';props.setControlPrice(()=>'Price Increase')}
+    else {arrangePriceVariable='Decrease';props.setControlPrice(()=>'Price Decrease')}
     return (
         <>
             <div className={props.dropdown}>

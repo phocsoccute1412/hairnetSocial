@@ -16,10 +16,26 @@ const fetchInfoProduct:NextApiHandler = async (req, res)=> {
     const router = req.query
     var params = router.skipValue?.toString()
     var filterSearchValue = router.filterSearch?.toString()
+    var rankArrange = router.rankArrange?.toString().split(' ')
+    var priceArrange = router.priceArrange?.toString().split(' ')
+    var rank
+    var price
     var value
 
     if(params!= undefined) value = parseInt(params,10)
-    
+
+    if(rankArrange){
+        if(rankArrange[1]= 'Increase') rank=1
+        else if(rankArrange[1]='Decrease') rank=-1
+    }
+    else rank=-1
+
+    if(priceArrange){
+        if(priceArrange[1]= 'Increase') price=1
+        else if(priceArrange[1]='Decrease') price=-1
+    }
+    else price=-1
+
     const db = client.db('hairnet')
     const listOfMaleHairs = db.collection('Businesses')
     const pipeline = []
