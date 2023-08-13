@@ -12,7 +12,7 @@ export default function ListOfActiveUser(props:any){
                 }}>
                 <Image src={'/uploads/tocnamdep2.jpg'} alt=""
                 width={500} height={500}></Image>
-                <p>User Name</p>
+                <p>{props.names}</p>
                 <div className={socialcss.activeList__circle}></div>
             </div>
         </>
