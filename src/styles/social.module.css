@@ -299,11 +299,15 @@ img.reelPart__Post {
     margin-left:25px;
 }
 .emoji {
-    margin-top:14px;
+    margin-top:13px;
     width:100%;
     height:5%;
     color:white;
     display: flex;
+}
+.emoji p {
+    opacity:0.7;
+    margin-left:3px;
 }
 .emoji img {
     margin-left: 20px;
@@ -311,11 +315,7 @@ img.reelPart__Post {
     height: 100%;
     border-radius: 50%;
 }
-.emoji p {
-    font-size: 15px;
-    margin-left:2px;
-    opacity: 0.7;
-}
+
 .actionButton__wrapper {
     margin-top:2px;
     width:100%;
@@ -335,7 +335,8 @@ img.reelPart__Post {
 }
 .commentPart {
     width:100%;
-    height:43.164283%;
+    height:40.164283%;
+    overflow-y: scroll;
 }
 .commentPart__row {
     width:100%;
@@ -349,8 +350,11 @@ img.reelPart__Post {
 .commentPart__row img {
     margin-left:10px;
     width:6%;
-    height:90%;
+    height:99%;
     border-radius: 50%;
+}
+.n_child {
+    margin-top:10px;
 }
 .commentPart__NameAndInput {
     height: 100%;

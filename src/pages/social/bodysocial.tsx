@@ -10,6 +10,7 @@ import socialcss from "../../styles/social.module.css"
 
 export default function BodySocial(){
 
+    const [feedData, setFeedData] = useState([])
     const [chatboxHidden, setChatBoxHidden] = useState(false)
     const [hiddenLeft, setHiddenLeft] = useState(false)
     const [srcButton, setSrcButton] = useState('/images/publicPageImages/buttonCarousel.png')
@@ -53,6 +54,18 @@ export default function BodySocial(){
             setSrcButton("/images/publicPageImages/buttonCarousel.png")
         }
     },[chatboxHidden, hiddenLeft])
+
+    useEffect(()=>{
+        fetch("http://localhost:3000/api/fetchPost")
+         .then(response => response.json())
+         .then(data => setFeedData(data))
+    },[])
+
+    const feeds = feedData.map(data => {
+        return (
+            <Feed props={data}></Feed>
+        )
+    })
     return (
         <>
             <div className={socialcss.bodySocial__wrapper}>
@@ -81,11 +94,7 @@ export default function BodySocial(){
                 <div className={socialcss.bodyRight} id={socialcss.rightSideBar}>
                     <Reels></Reels>
                     <div className={socialcss.bodyRight__newFeed_wrapper}>
-                        <Feed></Feed>
-                        <Feed></Feed>
-                        <Feed></Feed>
-                        <Feed></Feed>
-                        <Feed></Feed>
+                        {feeds}
                     </div>
                 </div>
                 <div className={socialcss.messageWindow} id={socialcss.messageWindow} hidden={chatboxHidden}>

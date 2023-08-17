@@ -2,14 +2,14 @@ import Image from "next/image"
 
 import socialcss from "../../styles/social.module.css"
 
-export default function CommentSocial(){
+export default function CommentSocial({props}:any){
     return (
         <>
-            <Image src={'/uploads/images_eximage2.jpg'} alt=''
+            <Image src={props.ava} alt=''
             width={500} height={500}></Image>
             <div className={socialcss.commentPart__NameAndInput}>
-                <h4>Hairstore1</h4>
-                <p>comment jashdkjahsdkjahsdjkhasjdjhasdkjhasjdhaksjdhkasjhdkjadhkajhdksa</p>
+                <h4>{props.host}</h4>
+                <p>{props.post}</p>
             </div>
         </>
     )
